@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1aa4171e06a0f47bcfad12dbb8acd9, type: 3}
+  m_Name: skin_Piggy
+  m_EditorClassIdentifier: 
+  itemName: PIGGY
+  itemIcon: {fileID: 4939476826094644546, guid: 6f44379b25aef8144b0ab99350cc404d, type: 3}
+  description: i am hungry :(((
+  price: 1000
+  isPurchased: 0
+  SkinID: 3

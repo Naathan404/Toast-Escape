@@ -1,0 +1,768 @@
+fileFormatVersion: 2
+guid: 34a8cc8b5d16c6644a41851c3f50ee4d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6720277443526346629
+    second: "Bot\xF5es de Interface - Pixel Art_0"
+  - first:
+      213: 1225471223012568643
+    second: "Bot\xF5es de Interface - Pixel Art_1"
+  - first:
+      213: 124438900846099151
+    second: "Bot\xF5es de Interface - Pixel Art_2"
+  - first:
+      213: 7148859225528791973
+    second: "Bot\xF5es de Interface - Pixel Art_3"
+  - first:
+      213: 1223638183020048280
+    second: "Bot\xF5es de Interface - Pixel Art_4"
+  - first:
+      213: 3939302298567926405
+    second: "Bot\xF5es de Interface - Pixel Art_5"
+  - first:
+      213: 5953950816661545459
+    second: "Bot\xF5es de Interface - Pixel Art_6"
+  - first:
+      213: -216582962811201135
+    second: "Bot\xF5es de Interface - Pixel Art_7"
+  - first:
+      213: -8166980210267470482
+    second: "Bot\xF5es de Interface - Pixel Art_8"
+  - first:
+      213: -3535476411119223096
+    second: "Bot\xF5es de Interface - Pixel Art_9"
+  - first:
+      213: -6051184663282697053
+    second: "Bot\xF5es de Interface - Pixel Art_10"
+  - first:
+      213: -5068805223224795393
+    second: "Bot\xF5es de Interface - Pixel Art_11"
+  - first:
+      213: 7688740844186928131
+    second: "Bot\xF5es de Interface - Pixel Art_12"
+  - first:
+      213: 4310355319110540096
+    second: "Bot\xF5es de Interface - Pixel Art_13"
+  - first:
+      213: -7228433744987688612
+    second: "Bot\xF5es de Interface - Pixel Art_14"
+  - first:
+      213: -1120812413610302175
+    second: "Bot\xF5es de Interface - Pixel Art_15"
+  - first:
+      213: -2286120738215256110
+    second: "Bot\xF5es de Interface - Pixel Art_16"
+  - first:
+      213: 9001591240188599707
+    second: "Bot\xF5es de Interface - Pixel Art_17"
+  - first:
+      213: -3127767745522274034
+    second: "Bot\xF5es de Interface - Pixel Art_18"
+  - first:
+      213: -9194957759115413359
+    second: "Bot\xF5es de Interface - Pixel Art_19"
+  - first:
+      213: 4678376503201708160
+    second: "Bot\xF5es de Interface - Pixel Art_20"
+  - first:
+      213: 3400141322366462759
+    second: "Bot\xF5es de Interface - Pixel Art_21"
+  - first:
+      213: -1225224247081543215
+    second: "Bot\xF5es de Interface - Pixel Art_22"
+  - first:
+      213: 2300674689797173236
+    second: "Bot\xF5es de Interface - Pixel Art_23"
+  - first:
+      213: 4152812086256518567
+    second: "Bot\xF5es de Interface - Pixel Art_24"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_0"
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 3551
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5874575bab8334d50800000000000000
+      internalID: 6720277443526346629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_1"
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 3551
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34ea022a59fb10110800000000000000
+      internalID: 1225471223012568643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_2"
+      rect:
+        serializedVersion: 2
+        x: 2815
+        y: 3551
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcafb2165881ab100800000000000000
+      internalID: 124438900846099151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_3"
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 3039
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a3faeed699d53360800000000000000
+      internalID: 7148859225528791973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_4"
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 3039
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89fa380c17c3bf010800000000000000
+      internalID: 1223638183020048280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_5"
+      rect:
+        serializedVersion: 2
+        x: 2815
+        y: 3039
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5826509b1963ba630800000000000000
+      internalID: 3939302298567926405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_6"
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 2527
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f1224de8bea0a250800000000000000
+      internalID: 5953950816661545459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_7"
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 2527
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1999c3d51fa8efcf0800000000000000
+      internalID: -216582962811201135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_8"
+      rect:
+        serializedVersion: 2
+        x: 2815
+        y: 2527
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e65cc5fe4ce09ae80800000000000000
+      internalID: -8166980210267470482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_9"
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 2015
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ce37739fe67feec0800000000000000
+      internalID: -3535476411119223096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_10"
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 2015
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ac3ebafb9fd50ca0800000000000000
+      internalID: -6051184663282697053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_11"
+      rect:
+        serializedVersion: 2
+        x: 2815
+        y: 2015
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe9a02518cf7a9b0800000000000000
+      internalID: -5068805223224795393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_12"
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1407
+        width: 546
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3048cc3af05e3ba60800000000000000
+      internalID: 7688740844186928131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_13"
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1407
+        width: 546
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04b9c43535571db30800000000000000
+      internalID: 4310355319110540096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_14"
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 1407
+        width: 546
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c51ff8b8ec17fab90800000000000000
+      internalID: -7228433744987688612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_15"
+      rect:
+        serializedVersion: 2
+        x: 2239
+        y: 1119
+        width: 1666
+        height: 834
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 125e8e25c031270f0800000000000000
+      internalID: -1120812413610302175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_16"
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 799
+        width: 546
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2df960d0d411640e0800000000000000
+      internalID: -2286120738215256110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_17"
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 799
+        width: 546
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9d95bc5a831cec70800000000000000
+      internalID: 9001591240188599707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_18"
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 799
+        width: 546
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e01783c9ecfe794d0800000000000000
+      internalID: -3127767745522274034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_19"
+      rect:
+        serializedVersion: 2
+        x: 2175
+        y: 543
+        width: 1250
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 198343392a2f46080800000000000000
+      internalID: -9194957759115413359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_20"
+      rect:
+        serializedVersion: 2
+        x: 3455
+        y: 543
+        width: 546
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0883fde74aeece040800000000000000
+      internalID: 4678376503201708160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_21"
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 191
+        width: 546
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72ba7c9948abf2f20800000000000000
+      internalID: 3400141322366462759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_22"
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 191
+        width: 546
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d9528ee9012ffee0800000000000000
+      internalID: -1225224247081543215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_23"
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 191
+        width: 546
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ffa71dd073adef10800000000000000
+      internalID: 2300674689797173236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Bot\xF5es de Interface - Pixel Art_24"
+      rect:
+        serializedVersion: 2
+        x: 2175
+        y: 31
+        width: 1826
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a5c4440790c1a930800000000000000
+      internalID: 4152812086256518567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
