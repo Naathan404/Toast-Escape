@@ -24,13 +24,10 @@ public class BaseObstacle : MonoBehaviour
         // Kiem tra va cham voi meo
         if (other.gameObject.CompareTag("Cat"))
         {
-            ContactPoint2D contact = other.contacts[0];
-            Vector2 contactDirection = contact.point - (Vector2)transform.position;
-
             // Goi ham BlockGroup de nhom meo bi don lai
             CatGroupManager.instance.BlockGroup();
-
-            if (contactDirection.x < -0.1f)
+            ContactPoint2D contact = other.contacts[0];
+            if (contact.normal.x > 0.5f) // Kiem tra va cham neu meo den tu phia trai
             {
                 currentCat++;
                 UpdateCounterText();

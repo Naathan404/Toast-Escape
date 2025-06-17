@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: skin_GoldenPiggy
   m_EditorClassIdentifier: 
   itemName: Golden Piggy
-  itemIcon: {fileID: -3155272387195406291, guid: 1ab0c5375ec24104781df72b26dcfb5e, type: 3}
+  itemIcon: {fileID: 7217645859459335389, guid: eff06bf68fbb13541b4b738af9a361e6, type: 3}
   description: i am Piggy but more gorgeous
   price: 3000
   isPurchased: 0

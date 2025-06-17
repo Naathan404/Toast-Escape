@@ -26,6 +26,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip powerUp;
     public AudioClip clickButton;
     public AudioClip destroyObstacle;
+    public AudioClip powerTimeOut;
 
     private void Start()
     {

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: boost_DoubleCoin
   m_EditorClassIdentifier: 
   itemName: Double Coin
-  itemIcon: {fileID: 8351310047346322849, guid: a8e7bac495c04714384a78918cef6249, type: 3}
+  itemIcon: {fileID: 3941865155255965694, guid: bba839959d0b4a048b64f17b4db467d9, type: 3}
   description: double your collected coin in the next run
-  price: 10
-  isPurchased: 1
+  price: 200
+  isPurchased: 0
   BoostID: 2

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: skin_Cat
   m_EditorClassIdentifier: 
   itemName: Captain Meow
-  itemIcon: {fileID: 8845305274581831268, guid: bd4e5a0bef9f11347b5283f7d4a337ab, type: 3}
+  itemIcon: {fileID: -5205736002170022947, guid: 7b61a2b51d159d44f9ff642bfcd01c98, type: 3}
   description: All that he said "meow meow meow"
   price: 500
-  isPurchased: 0
+  isPurchased: 1
   SkinID: 2

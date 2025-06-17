@@ -1931,7 +1931,7 @@ GameObject:
   - component: {fileID: 4113555619063885451}
   m_Layer: 0
   m_Name: MagnetPowerUp
-  m_TagString: PU_Magnet
+  m_TagString: PowerUp/Magnet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

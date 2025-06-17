@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8ac5e483c5d5e4eac398b292b581cb, type: 3}
+  m_Name: boost_Magnet
+  m_EditorClassIdentifier: 
+  itemName: Magnet
+  itemIcon: {fileID: -9099283694029754122, guid: 0291c24fad3a3f9419d7656fbb6ec110, type: 3}
+  description: Give you a magnet last for first 30 second when you start a run
+  price: 150
+  isPurchased: 0
+  BoostID: 3

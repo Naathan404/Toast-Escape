@@ -7,6 +7,8 @@ public class CoinMagnet : BasePowerUp
     [SerializeField] private float magnetForce = 10f;
 
     private Transform targetPos;
+    private bool isActiveMagnet = false;
+    protected override bool isActive => isActiveMagnet;
     [SerializeField] private GameObject magnetSprite;
 
     private void Start()
@@ -42,12 +44,16 @@ public class CoinMagnet : BasePowerUp
     protected override void OnActivate()
     {
         Debug.Log("Activate magnet");
-        magnetSprite.SetActive(true);
+        isActiveMagnet = true;
+        magnetSprite.SetActive(true);    
     }
 
     protected override void OnDeactivate()
     {
         Debug.Log("Deactivate magnet");
+        isActiveMagnet = false;
         magnetSprite.SetActive(false);
+        EffectManager.instance.CallMagnetDeactivateEffect(this.transform.position);
+        AudioManager.instance.PlaySFX(AudioManager.instance.powerTimeOut);
     }
 }

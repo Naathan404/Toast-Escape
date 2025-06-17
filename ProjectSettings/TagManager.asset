@@ -11,7 +11,9 @@ TagManager:
   - Obstacle
   - Audio
   - Coin
-  - PU_Magnet
+  - PowerUp/DoubleCoin
+  - PowerUp/Magnet
+  - Obstacle/Bat
   layers:
   - Default
   - TransparentFX
@@ -54,6 +56,9 @@ TagManager:
     locked: 0
   - name: Cat
     uniqueID: 886648403
+    locked: 0
+  - name: 
+    uniqueID: 3886832839
     locked: 0
   m_RenderingLayers:
   - Default

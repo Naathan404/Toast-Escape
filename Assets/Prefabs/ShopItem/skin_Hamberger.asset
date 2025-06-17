@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: skin_Hamberger
   m_EditorClassIdentifier: 
   itemName: Mr. Chessy
-  itemIcon: {fileID: -637700585024036019, guid: 56538f40ab69cc846bf1d44e3bd3977c, type: 3}
+  itemIcon: {fileID: 7275279064785059147, guid: c39919abbef98904c9ee7d5ebfbe73af, type: 3}
   description: To be honest, I am handsome than Pizza
   price: 2000
-  isPurchased: 0
+  isPurchased: 1
   SkinID: 1

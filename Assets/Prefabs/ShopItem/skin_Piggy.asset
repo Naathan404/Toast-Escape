@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: skin_Piggy
   m_EditorClassIdentifier: 
   itemName: PIGGY
-  itemIcon: {fileID: 4939476826094644546, guid: 6f44379b25aef8144b0ab99350cc404d, type: 3}
+  itemIcon: {fileID: 4731885416678779501, guid: 18cc70537960fb245bacf27ada1beead, type: 3}
   description: i am hungry :(((
   price: 1000
   isPurchased: 0

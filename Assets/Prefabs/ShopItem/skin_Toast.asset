@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: skin_Toast
   m_EditorClassIdentifier: 
   itemName: Toast Bro
-  itemIcon: {fileID: -4587881788001133271, guid: 2a4381d4950f52448a2e2b4f41aca6af, type: 3}
+  itemIcon: {fileID: 7680891615989008225, guid: 6707b3652bc2c7a459498c988b15025d, type: 3}
   description: banh mi nuong ngon ngon
   price: 0
   isPurchased: 1

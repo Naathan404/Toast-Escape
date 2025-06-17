@@ -4,7 +4,8 @@ using UnityEngine.Rendering.Universal;
 public abstract class BasePowerUp : MonoBehaviour
 {
     [SerializeField] protected float duration;
-    [SerializeField] protected bool isActive = false;
+    //[SerializeField] protected bool isActive = false;
+    protected abstract bool isActive { get; }
     public virtual void Activate()
     {
         if (isActive)
@@ -13,15 +14,23 @@ public abstract class BasePowerUp : MonoBehaviour
             Invoke(nameof(Deactivate), duration);
             return;
         }
-        isActive = true;
         OnActivate();
         Invoke(nameof(Deactivate), duration);
     }
     public virtual void Deactivate()
     {
         if (!isActive) return;
-        isActive = false;
         CancelInvoke(nameof(Deactivate));
+        OnDeactivate();
+    }
+
+    public virtual void InstanceActivate()
+    {
+        OnActivate();
+    }
+
+    public virtual void InstanceDeactivate()
+    {
         OnDeactivate();
     }
 

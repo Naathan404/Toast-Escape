@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,9 +36,8 @@ public class GameManager : MonoBehaviour
         InGameUIManager.instance.SetPlayingPanel(true);
         InGameUIManager.instance.SetGameOverPanel(false);
         currentScore = CatGroupManager.instance.catList.Count;
-        ActivateSelectedBoost();
-        // if (bonusMinionsGroup)
-        //     bonusMinionsGroup.SetActive(false);
+        if (BoostManager.instance != null)
+            ActivateSelectedBoost();
     }
 
     /// Handling game over
@@ -55,7 +55,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
 
         // Reset lai boost da mua
-        BoostManager.instance.ClearBoosts();
+        if (BoostManager.instance != null)
+            BoostManager.instance.ClearBoosts();
     }
 
     // Restart game
@@ -87,15 +88,37 @@ public class GameManager : MonoBehaviour
 
     private void ActivateSelectedBoost()
     {
-        if (BoostManager.instance.isBoostActivate("Bonus Toast"))
+        if (BoostManager.instance.isBoostActivate("Squad Arrived!"))
         {
             bonusMinionsGroup.SetActive(true);
             Debug.Log("Activate bonus toast");
         }
         if (BoostManager.instance.isBoostActivate("Double Coin"))
         {
-            rewardPerCoin *= 2;
+            rewardPerCoin = 2;
             Debug.Log("Activate double coin");
         }
+        if (BoostManager.instance.isBoostActivate("Magnet"))
+        {
+            Debug.Log("Activate begin magnet");
+            StartCoroutine(ActiveMagnet(30f));
+        }
+    }
+
+    IEnumerator ActiveMagnet(float magnetDuration)
+    {
+        CoinMagnet magnet = GameObject.FindFirstObjectByType<CoinMagnet>();
+        magnet.InstanceActivate();
+        yield return new WaitForSeconds(magnetDuration);
+        Debug.Log("Hieu ung nam cham ket thuc");
+        magnet.InstanceDeactivate();
+    }
+
+    public void DoubleCoinReward(bool isMultiple)
+    {
+        if (isMultiple)
+            rewardPerCoin *= 2;
+        else
+            rewardPerCoin /= 2;
     }
 }

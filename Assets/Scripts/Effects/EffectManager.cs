@@ -22,6 +22,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject hitCoinEffectPrefab;
     [SerializeField] private GameObject hitPowerUpEffectPrefab;
     [SerializeField] private GameObject destroyObstacleEffectPrefab;
+    [SerializeField] private GameObject magnetDeactivateEffectPrefab;
 
     public void CallExplosionEffect(Vector3 pos)
     {
@@ -64,6 +65,15 @@ public class EffectManager : MonoBehaviour
         {
             GameObject destroyObstacleEffect = Instantiate(destroyObstacleEffectPrefab, pos, Quaternion.identity);
             Destroy(destroyObstacleEffect, 0.2f);
+        }
+    }
+
+    public void CallMagnetDeactivateEffect(Vector3 pos)
+    {
+        if (magnetDeactivateEffectPrefab)
+        {
+            GameObject magnetEffect = Instantiate(magnetDeactivateEffectPrefab, pos, Quaternion.identity);
+            Destroy(magnetEffect, 0.35f);
         }
     }
 }

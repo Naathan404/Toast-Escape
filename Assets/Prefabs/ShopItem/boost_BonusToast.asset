@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8ac5e483c5d5e4eac398b292b581cb, type: 3}
   m_Name: boost_BonusToast
   m_EditorClassIdentifier: 
-  itemName: Bonus Toast
-  itemIcon: {fileID: -2077549451906495887, guid: 2a4381d4950f52448a2e2b4f41aca6af, type: 3}
-  description: give you 4 more rtoast in the next run
-  price: 10
-  isPurchased: 1
+  itemName: Squad Arrived!
+  itemIcon: {fileID: -5848334109486645265, guid: e26bab31aa5b196408e84ba2a3657a14, type: 3}
+  description: give you 4 more reinforcements in the next run
+  price: 250
+  isPurchased: 0
   BoostID: 1
