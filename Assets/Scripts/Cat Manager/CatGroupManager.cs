@@ -42,13 +42,20 @@ public class CatGroupManager : MonoBehaviour
         CheckCatsOffscreen();
     }
 
-    // Xử lý nhảy
+    // Xu ly nhay voi delay
     private void HandleJump()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             //isJumping = true;
-            StartCoroutine(StartJumpWithDelay());
+            if (catList.Count > 0)
+                catList[0].StartJump();
+            for (int i = 1; i < catList.Count; i++)
+            {
+                float delay = (catList[0].transform.position.x - catList[i].transform.position.x) / 15f;
+                delay = delay < 0 ? delay * -1 : delay;
+                StartCoroutine(JumpCatWithDelay(catList[i], delay));
+            }
         }
 
         // if (Input.GetKey(KeyCode.Mouse0))
@@ -69,23 +76,32 @@ public class CatGroupManager : MonoBehaviour
         }
     }
 
-    private IEnumerator StartJumpWithDelay()
+    /// Cach nhay cu: dieu khien ca nhom cung nhay voi 1 khoang jumpdelay chung, meo o index cang lon thi cang delay 
+    // private IEnumerator StartJumpWithDelay()
+    // {
+    //     for (int i = 0; i < catList.Count; i++)
+    //     {
+    //         catList[i].StartJump();
+    //         yield return new WaitForSeconds(jumpDelay);
+    //     }
+    // }
+
+    /// Dieu khien tung nhan vat nhay rieng biet voi delay dua vao khoang cach cua no toi leader
+    private IEnumerator JumpCatWithDelay(Cat cat, float delay)
     {
-        for (int i = 0; i < catList.Count; i++)
-        {
-            catList[i].StartJump();
-            yield return new WaitForSeconds(jumpDelay);
-        }
+        yield return new WaitForSeconds(delay);
+        cat.StartJump();
+        Debug.Log("Meo nhay!");
     }
 
     // On dinh doi hinh
     public void FormatGroup()
     {
         if (catList.Count == 0) return;
+        // Cập nhật sorting order của index 0 để nó luôn nằm phía trên các index khác
+        UpdateLeaderSortingOrder();
 
-
-
-        // Di chuyen bon meo den 1/3 ben trai man hinh
+        // Di chuyển bọn mèo di chuyển vị trí 1/3 phía trái màn hình
         float targetX = Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0, 0)).x;
 
         if (!isBlocked)
@@ -118,7 +134,6 @@ public class CatGroupManager : MonoBehaviour
                 rb.MovePosition(newPos);
             }
         }
-
     }
 
     public void BlockGroup()
@@ -158,36 +173,39 @@ public class CatGroupManager : MonoBehaviour
             newCat.AddComponent<CatCollisionHandler>();
         Cat cat = newCat.GetComponent<Cat>();
         catList.Add(cat);
+        // Set parent là GameObject đang giữ script này
         cat.transform.SetParent(transform);
-
-        // Cap nhat layer
-        UpdateSortingOrder();
+        // Set sorting order cho mèo mới được thêm vào
+        SpriteRenderer sr = cat.GetComponent<SpriteRenderer>();
+        sr.sortingOrder = 50 + Random.Range(-50, 99);
+        float colorScale = Mathf.Clamp(sr.sortingOrder / 89f, 0.6f, 1f);
+        sr.color = new Color(colorScale, colorScale, colorScale, 1f);
+        cat.transform.position = new Vector3(cat.transform.position.x, cat.transform.position.y, Random.Range(-1f, 0f));
         // Tang diem 
         GameManager.instance.IncreaseScore();
     }
 
-    private void UpdateSortingOrder()
+    private void UpdateLeaderSortingOrder()
     {
-        catList[0].GetComponent<SpriteRenderer>().sortingOrder = 200;
-        for (int i = 1; i < catList.Count; i++)
-        {
-            SpriteRenderer sr = catList[i].GetComponent<SpriteRenderer>();
-            int temp = Random.Range(1, 3);
-            if (temp < 2) sr.sortingOrder = 100 - i;
-            if (temp >= 2) sr.sortingOrder = 100 + i;
-        }
+        catList[0].GetComponent<SpriteRenderer>().sortingOrder = 150;
+        catList[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        catList[0].transform.position = new Vector3(catList[0].transform.position.x, catList[0].transform.position.y, 1f);
     }
 
     // Xóa mèo
     public void RemoveCat(Cat cat)
     {
         if (catList.Count == 0) return;
+        bool isLeader = false;
         if (catList.Contains(cat))
         {
+            if (cat == catList[0]) isLeader = true;
             catList.Remove(cat);
             Destroy(cat.gameObject);
+            if (isLeader)
+                UpdateLeaderSortingOrder();
         }
-        
+
         GameManager.instance.DecreaseScore();
         if (catList.Count <= 0)
         {
@@ -195,6 +213,7 @@ public class CatGroupManager : MonoBehaviour
         }
     }
 
+    // Kiểm tra nếu con mèo ra khỏi màn hình thì xóa nó
     private void CheckCatsOffscreen()
     {
         if (catList.Count == 0) return;
@@ -226,7 +245,7 @@ public class CatGroupManager : MonoBehaviour
         }
     }
 
-    // GetLeaderCat
+    // Get con mèo ở index 0
     public GameObject getLeaderCat()
     {
         if (catList.Count <= 0) return null;
