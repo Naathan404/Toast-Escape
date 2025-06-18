@@ -10,6 +10,7 @@ public class IncomingObstacle : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.alert);
         StartCoroutine(StartWithWarning(warningDuration));
     }
 

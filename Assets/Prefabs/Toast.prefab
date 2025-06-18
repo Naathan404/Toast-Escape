@@ -106,10 +106,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseJumpForce: 15
-  extraJumpForce: 5
-  maxHoldTime: 0.3
+  extraJumpForce: 0
+  maxHoldTime: 0
+  jumpTimer: 0
+  fallingFactor: 0.6
+  baseGravity: 3.5
+  glideGravity: 2.5
   isGrounded: 0
-  checkGround: {fileID: 0}
+  isHoldingJump: 0
   animator: {fileID: 604141038407618243}
 --- !u!50 &8052235297806102440
 Rigidbody2D:
@@ -126,7 +130,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 3.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

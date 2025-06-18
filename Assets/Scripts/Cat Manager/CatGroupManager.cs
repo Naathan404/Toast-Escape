@@ -9,9 +9,8 @@ public class CatGroupManager : MonoBehaviour
     [Header("Cat Group Settings")]
     public List<Cat> catList = new List<Cat>();
     public GameObject catPrefab;
-    //[SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float formatSpeed = 30f;
-    [SerializeField] private float jumpDelay = 0.1f;
+    [SerializeField] private float delayFactor;
     // private bool isJumping = false;
     [Header("Format Group")]
     [SerializeField] private float posX = -3.5f;
@@ -37,6 +36,10 @@ public class CatGroupManager : MonoBehaviour
 
     private void Update()
     {
+        if (catList.Count <= 0)
+        {
+            GameManager.instance.GameOver();
+        }
         HandleJump();
         FormatGroup();
         CheckCatsOffscreen();
@@ -47,31 +50,31 @@ public class CatGroupManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            //isJumping = true;
-            if (catList.Count > 0)
-                catList[0].StartJump();
-            for (int i = 1; i < catList.Count; i++)
+            for (int i = 0; i < catList.Count; i++)
             {
-                float delay = (catList[0].transform.position.x - catList[i].transform.position.x) / 15f;
+                float delay = (catList[0].transform.position.x - catList[i].transform.position.x) * delayFactor;
                 delay = delay < 0 ? delay * -1 : delay;
                 StartCoroutine(JumpCatWithDelay(catList[i], delay));
             }
         }
 
-        // if (Input.GetKey(KeyCode.Mouse0))
-        // {
-        //     foreach (var cat in catList)
-        //     {
-        //         cat.HoldJump(); 
-        //     }
-        // }
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            for (int i = 0; i < catList.Count; i++)
+            {
+                float delay = (catList[0].transform.position.x - catList[i].transform.position.x) * delayFactor;
+                delay = delay < 0 ? delay * -1 : delay;
+                StartCoroutine(SetGravityWithDelay(catList[i], delay));
+            }
+        }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            //isJumping = false;
-            foreach (var cat in catList)
+            for (int i = 0; i < catList.Count; i++)
             {
-                cat.ExitJump();
+                float delay = (catList[0].transform.position.x - catList[i].transform.position.x) * delayFactor;
+                delay = delay < 0 ? delay * -1 : delay;
+                StartCoroutine(ExitJumpWithDelay(catList[i], delay));
             }
         }
     }
@@ -94,6 +97,20 @@ public class CatGroupManager : MonoBehaviour
         Debug.Log("Meo nhay!");
     }
 
+    private IEnumerator ExitJumpWithDelay(Cat cat, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        cat.ExitJump();
+        cat.SetBaseGravity();
+        Debug.Log("Meo roi!");
+    }
+
+    private IEnumerator SetGravityWithDelay(Cat cat, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        cat.SetGlideGravity();
+    }
+
     // On dinh doi hinh
     public void FormatGroup()
     {
@@ -102,7 +119,7 @@ public class CatGroupManager : MonoBehaviour
         UpdateLeaderSortingOrder();
 
         // Di chuyển bọn mèo di chuyển vị trí 1/3 phía trái màn hình
-        float targetX = Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0, 0)).x;
+        float targetX = Camera.main.ViewportToWorldPoint(new Vector3(0.35f, 0, 0)).x;
 
         if (!isBlocked)
         {
@@ -152,6 +169,7 @@ public class CatGroupManager : MonoBehaviour
         {
             if (catList[i].IsGrounded() == true) continue;
             catList[i].setIsGrounded(isTrue);
+            catList[i].setIsHoldingJump(isTrue);
             catList[i].setIsGroundFalseWhenCatFalling();
         }
     }
@@ -175,21 +193,33 @@ public class CatGroupManager : MonoBehaviour
         catList.Add(cat);
         // Set parent là GameObject đang giữ script này
         cat.transform.SetParent(transform);
+
         // Set sorting order cho mèo mới được thêm vào
         SpriteRenderer sr = cat.GetComponent<SpriteRenderer>();
-        sr.sortingOrder = 50 + Random.Range(-50, 99);
-        float colorScale = Mathf.Clamp(sr.sortingOrder / 89f, 0.6f, 1f);
-        sr.color = new Color(colorScale, colorScale, colorScale, 1f);
+        if (catList.Count % 4 != 0 || catList.Count == 3)
+        {
+            sr.sortingOrder = Random.Range(0, 99);
+            float colorScale = Mathf.Clamp(sr.sortingOrder / 90f, 0.6f, 1f);
+            sr.color = new Color(colorScale, colorScale, colorScale, 1f);
+        }
+        else
+        {
+            sr.sortingOrder = Random.Range(100, 149);
+        }
         cat.transform.position = new Vector3(cat.transform.position.x, cat.transform.position.y, Random.Range(-1f, 0f));
+
         // Tang diem 
         GameManager.instance.IncreaseScore();
     }
 
     private void UpdateLeaderSortingOrder()
     {
-        catList[0].GetComponent<SpriteRenderer>().sortingOrder = 150;
-        catList[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-        catList[0].transform.position = new Vector3(catList[0].transform.position.x, catList[0].transform.position.y, 1f);
+        if (catList.Count > 0)
+        {
+            catList[0].GetComponent<SpriteRenderer>().sortingOrder = 150;
+            catList[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            catList[0].transform.position = new Vector3(catList[0].transform.position.x, catList[0].transform.position.y, 1f);
+        }
     }
 
     // Xóa mèo
@@ -207,10 +237,6 @@ public class CatGroupManager : MonoBehaviour
         }
 
         GameManager.instance.DecreaseScore();
-        if (catList.Count <= 0)
-        {
-            GameManager.instance.GameOver();
-        }
     }
 
     // Kiểm tra nếu con mèo ra khỏi màn hình thì xóa nó
@@ -238,10 +264,6 @@ public class CatGroupManager : MonoBehaviour
                 GameManager.instance.DecreaseScore();
                 Destroy(catToRemove.gameObject);
             }
-        }
-        if (catList.Count <= 0)
-        {
-            GameManager.instance.GameOver();
         }
     }
 

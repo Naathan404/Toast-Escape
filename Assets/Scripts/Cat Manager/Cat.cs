@@ -7,10 +7,14 @@ public class Cat : MonoBehaviour
     [SerializeField] private float baseJumpForce;
     [SerializeField] private float extraJumpForce;
     [SerializeField] private float maxHoldTime;
-    //[SerializeField] private float jumpTimer = 0f;
+    [SerializeField] private float jumpTimer = 0f; /////
+    
+    [SerializeField] private float fallingFactor;
+    [SerializeField] private float baseGravity;
+    [SerializeField] private float glideGravity;
+
     [SerializeField] private bool isGrounded = false;
-    //[SerializeField] private bool isHoldingJump = false;
-    [SerializeField] private GameObject checkGround;
+    [SerializeField] private bool isHoldingJump = false; /////
 
     [Header("Animation Settings")]
     [SerializeField] private Animator animator;
@@ -27,6 +31,13 @@ public class Cat : MonoBehaviour
     private void Update()
     {
         UpdateAnimation();
+        /////
+        if (isHoldingJump && jumpTimer < maxHoldTime)
+        {
+            rb.AddForce(Vector2.up * extraJumpForce * Time.deltaTime, ForceMode2D.Force);
+            jumpTimer += Time.deltaTime;
+        }
+        /////
     }
 
     public void StartJump()
@@ -34,25 +45,35 @@ public class Cat : MonoBehaviour
         if (isGrounded)
         {
             isGrounded = false;
-            //isHoldingJump = true;
-            //jumpTimer = 0f;
+            isHoldingJump = true;
+            jumpTimer = 0f;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, baseJumpForce);
         }
     }
 
-    // public void HoldJump()
-    // {
-    //     if (isHoldingJump && jumpTimer < maxHoldTime)
-    //     {
-    //         rb.AddForce(Vector2.up * extraJumpForce * Time.deltaTime, ForceMode2D.Force);
-    //         jumpTimer += Time.deltaTime;
-    //     }
-    // }
-
     public void ExitJump()
     {
-        //isHoldingJump = false;
-        //jumpTimer = 0f;
+        isHoldingJump = false;
+        jumpTimer = 0f;
+
+        // Khi thả thì rơi nhanh hơn nếu đang bay lên
+        if (rb.linearVelocity.y > 0)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * fallingFactor);
+        }
+
+    }
+
+    public void SetBaseGravity()
+    {
+        if(rb != null)
+            rb.gravityScale = baseGravity;
+    }
+
+    public void SetGlideGravity()
+    {
+        if(rb != null)
+            rb.gravityScale = glideGravity;
     }
 
     public void MoveForward(float speed)
@@ -60,15 +81,18 @@ public class Cat : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 
-    public bool IsGrounded() { return isGrounded; }
+    public bool IsGrounded() => isGrounded;
+    public bool IsJumping() => isHoldingJump;
 
     public void setIsGrounded(bool isTrue) { isGrounded = isTrue; }
+    public void setIsHoldingJump(bool isTrue) { isHoldingJump = isTrue; }
 
     public void setIsGroundFalseWhenCatFalling()
     {
         if (isGrounded && rb.linearVelocity.y < -0.5f)
         {
             isGrounded = false;
+            isHoldingJump = false;
         }
     }
 
@@ -86,10 +110,6 @@ public class Cat : MonoBehaviour
                 }
             }
         }
-        // if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Obstacle"))
-        // {
-        //     isGrounded = true;
-        // }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -98,10 +118,6 @@ public class Cat : MonoBehaviour
         {
             isGrounded = true;
         }
-        // if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Obstacle"))
-        // {
-        //     isGrounded = true;
-        // }
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -136,8 +152,4 @@ public class Cat : MonoBehaviour
         animator.runtimeAnimatorController = runtimeAnimatorController;
     }
 
-}
-
-internal class CheckGround
-{
 }

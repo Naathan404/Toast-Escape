@@ -1,10 +1,6 @@
 using System;
 using System.Collections;
-using Unity.IO.LowLevel.Unsafe;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 public class GameManager : MonoBehaviour
 {
     [Header("Score Manager Settings")]
@@ -38,6 +34,11 @@ public class GameManager : MonoBehaviour
         currentScore = CatGroupManager.instance.catList.Count;
         if (BoostManager.instance != null)
             ActivateSelectedBoost();
+    }
+
+    private void Update()
+    {
+        
     }
 
     /// Handling game over

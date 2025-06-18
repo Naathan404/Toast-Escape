@@ -2832,6 +2832,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 6544511703560112783, guid: 665336d0f3fe33c4d924fa3cb35a1d56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2933,6 +2937,10 @@ PrefabInstance:
     - target: {fileID: 6544511703560112783, guid: 665336d0f3fe33c4d924fa3cb35a1d56, type: 3}
       propertyPath: m_Name
       value: Slime (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544511703560112783, guid: 665336d0f3fe33c4d924fa3cb35a1d56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3080,9 +3088,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CallIncomingObstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 4928003570453959828, guid: 68eeedcd5063f3d409bf566ab727ca56, type: 3}
+      propertyPath: m_Size.y
+      value: 7.772749
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928003570453959828, guid: 68eeedcd5063f3d409bf566ab727ca56, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.6246724
+      objectReference: {fileID: 0}
     - target: {fileID: 7282727059540105708, guid: 68eeedcd5063f3d409bf566ab727ca56, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.2200012
+      value: 4.47
       objectReference: {fileID: 0}
     - target: {fileID: 7282727059540105708, guid: 68eeedcd5063f3d409bf566ab727ca56, type: 3}
       propertyPath: m_LocalPosition.y

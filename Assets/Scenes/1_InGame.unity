@@ -2130,12 +2130,12 @@ MonoBehaviour:
   - {fileID: 1496065562}
   catPrefab: {fileID: 198154793089267427, guid: 722996c2a6ec1804f929fa512d0127d1, type: 3}
   formatSpeed: 15
-  jumpDelay: 0.025
+  delayFactor: 0.075
   posX: -3.5
   posY: -2.5
   isBlocked: 0
   minGap: 0.5
-  maxGap: 1
+  maxGap: 1.2
 --- !u!4 &657669644
 Transform:
   m_ObjectHideFlags: 0
@@ -2803,6 +2803,7 @@ MonoBehaviour:
   clickButton: {fileID: 8300000, guid: d7ab395d56c7e0e4ab423d3457388d75, type: 3}
   destroyObstacle: {fileID: 8300000, guid: 0b9f9ac4ff5c1b0468e4463c82007319, type: 3}
   powerTimeOut: {fileID: 8300000, guid: a76c41fe4e1f2524b8588c477037fb7f, type: 3}
+  alert: {fileID: 8300000, guid: e145a6e1a1ffe6c47b0057604914c63a, type: 3}
 --- !u!1 &1124160327
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,6 +3880,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toast
       objectReference: {fileID: 0}
+    - target: {fileID: 2496933483599273503, guid: 722996c2a6ec1804f929fa512d0127d1, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496933483599273503, guid: 722996c2a6ec1804f929fa512d0127d1, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496933483599273503, guid: 722996c2a6ec1804f929fa512d0127d1, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5533495620907534130, guid: 722996c2a6ec1804f929fa512d0127d1, type: 3}
       propertyPath: m_Size.y
       value: 1.1366813
@@ -4354,7 +4367,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.836
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4989,6 +5002,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 924751831}
     m_Modifications:
+    - target: {fileID: 600710870402200064, guid: 10c6c0e9371c04f4e8dbe1112c003290, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 730788451360640369, guid: 10c6c0e9371c04f4e8dbe1112c003290, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 16.45
