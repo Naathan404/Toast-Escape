@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class AudioManager : MonoBehaviour
             instance = this;
         }
     }
+
+    [SerializeField] private AudioMixer audioMixer;
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
 
@@ -29,12 +33,14 @@ public class AudioManager : MonoBehaviour
     public AudioClip powerTimeOut;
     public AudioClip alert;
     public AudioClip fillerSfx;
+    public AudioClip shopTabChange;
 
     private float lastSFXTime = -1f;
-    private float sfxCoolDown = 0.1f;
+    private float sfxCoolDown = 0.05f;
 
     private void Start()
     {
+        SetVolume();
         musicSource.clip = backgroundMusic;
         musicSource.Play();
     }
@@ -67,6 +73,14 @@ public class AudioManager : MonoBehaviour
 
         musicSource.Stop();
         musicSource.volume = startVolume;
+    }
+
+    public void SetVolume()
+    {
+        float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
+        float sfxVolume = PlayerPrefs.GetFloat("SfxVolume");
+        audioMixer.SetFloat("MusicVolume", Mathf.Log10(musicVolume) * 20);
+        audioMixer.SetFloat("SfxVolume", Mathf.Log10(sfxVolume) * 20);
     }
 
 }

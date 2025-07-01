@@ -76,11 +76,11 @@ public class GameManager : MonoBehaviour
         if (currentScore > PlayerPrefs.GetInt(HIGH_SCORE, 0))
         {
             PlayerPrefs.SetInt(HIGH_SCORE, currentScore);
-            if (!isNewRecord)
+            if (!isNewRecord && PlayerPrefs.GetInt(HIGH_SCORE) > 1)
             {
                 isNewRecord = true;
+                AudioManager.instance.PlaySFX(AudioManager.instance.powerUp);
                 InGameUIManager.instance.SetNewRecordTextStatus(true);
-                AudioManager.instance.PlaySFX(AudioManager.instance.fillerSfx);
             }
         }
     }

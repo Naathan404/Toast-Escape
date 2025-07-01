@@ -88,11 +88,10 @@ public class InGameUIManager : MonoBehaviour
             UpdateFinalCoinText(0);
             yield return new WaitForSecondsRealtime(0.25f);
         }
-        AudioManager.instance.PlaySFX(AudioManager.instance.fillerSfx);
         for (int i = 1; i <= finalCoin; i++)
         {
-            UpdateFinalCoinText(i);
             AudioManager.instance.PlaySFX(AudioManager.instance.fillerSfx);
+            UpdateFinalCoinText(i);
             float delay = Mathf.Clamp(i * 0.001f, 0, 0.999f);
             yield return new WaitForSecondsRealtime(0.1f - delay);
         }

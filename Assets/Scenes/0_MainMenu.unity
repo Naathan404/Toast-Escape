@@ -503,7 +503,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 771862188}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: OnStartButtonClick
+        m_MethodName: OnLoadSceneButtonClick
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -715,7 +715,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 771862188}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: OnStartButtonClick
+        m_MethodName: OnLoadSceneButtonClick
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -935,6 +935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOutDuration: 3
+  audioMixer: {fileID: 24100000, guid: 6c27d92d8be684f41a21f41fb98ad552, type: 2}
   musicSource: {fileID: 1548479999}
   SFXSource: {fileID: 812571319}
   backgroundMusic: {fileID: 8300000, guid: bea93a38b71b64b598109b3a3b1a0048, type: 3}
@@ -2954,14 +2955,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 771862188}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: OnStartButtonClick
+        m_MethodName: OnLoadSceneButtonClick
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: InGame
+          m_StringArgument: 3_Options
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1426705859
@@ -3524,14 +3525,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 771862188}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: OnStartButtonClick
+        m_MethodName: OnLoadSceneButtonClick
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: InGame
+          m_StringArgument: 4_Info
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1573859119

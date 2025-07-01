@@ -10,15 +10,13 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private Slider loadingSlider;
 
-    public void OnStartButtonClick(string sceneName)
+    public void OnLoadSceneButtonClick(string sceneName)
     {
         AudioManager.instance.PlaySFX(AudioManager.instance.clickButton);
         mainMenu.SetActive(false);
         loadingScreen.SetActive(true);
         StartCoroutine(LoadGameAsync(sceneName));
     }
-
-
 
     public void OnQuitButtonClick()
     {
@@ -29,14 +27,6 @@ public class SceneController : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnShopButtonClick(string sceneName)
-    {
-        mainMenu.SetActive(false);
-        loadingScreen.SetActive(true);
-        StartCoroutine(LoadGameAsync(sceneName));
-        
-    }
-    
     // Load async
     IEnumerator LoadGameAsync(string sceneName)
     {

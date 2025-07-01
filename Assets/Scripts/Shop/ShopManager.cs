@@ -38,6 +38,7 @@ public class ShopManager : MonoBehaviour
 
     public void OnUpgradeButtonClick()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.shopTabChange);
         upgradesScrollView.SetActive(true);
         skinsScrollView.SetActive(false);
         boostsScrollView.SetActive(false);
@@ -48,6 +49,7 @@ public class ShopManager : MonoBehaviour
 
     public void OnSkinButtonClick()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.shopTabChange);
         boostsScrollView.SetActive(false);
         upgradesScrollView.SetActive(false);
         skinsScrollView.SetActive(true);
@@ -58,6 +60,7 @@ public class ShopManager : MonoBehaviour
 
     public void OnBoostButtonClick()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.shopTabChange);
         boostsScrollView.SetActive(true);
         upgradesScrollView.SetActive(false);
         skinsScrollView.SetActive(false);
@@ -65,12 +68,6 @@ public class ShopManager : MonoBehaviour
         skinTabSprite.GetComponent<UnityEngine.UI.Image>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
         boostTabSprite.GetComponent<UnityEngine.UI.Image>().color = new Color(1f, 1f, 1f, 1f);
     }    
-
-    // Nut tro ve main menu
-    public void OnBackToMainMenuButton()
-    {
-        SceneManager.LoadScene("0_MainMenu");
-    }
 
     public void UpdateCoinUI()
     {
