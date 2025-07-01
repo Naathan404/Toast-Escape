@@ -39,7 +39,7 @@ public class UpgradeTab : BaseTab
         // }
     }
 
-    protected override void TryBuyItem(ShopItem item, Button buyButton)
+    protected override void TryBuyItem(ShopItem item, Button buyButton, Image image)
     {
         // int currentCoins = PlayerPrefs.GetInt("TotalCoin", 0);
 

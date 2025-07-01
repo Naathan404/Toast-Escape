@@ -53,9 +53,9 @@ public class Cat : MonoBehaviour
 
     public void ExitJump()
     {
+        if(rb == null) return;
         isHoldingJump = false;
         jumpTimer = 0f;
-
         // Khi thả thì rơi nhanh hơn nếu đang bay lên
         if (rb.linearVelocity.y > 0)
         {

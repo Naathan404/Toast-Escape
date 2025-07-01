@@ -296,7 +296,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 2.653902, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &5385496
@@ -339,8 +339,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1491663011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -945,6 +945,8 @@ MonoBehaviour:
   clickButton: {fileID: 8300000, guid: d7ab395d56c7e0e4ab423d3457388d75, type: 3}
   destroyObstacle: {fileID: 8300000, guid: 0b9f9ac4ff5c1b0468e4463c82007319, type: 3}
   powerTimeOut: {fileID: 0}
+  alert: {fileID: 0}
+  fillerSfx: {fileID: 0}
 --- !u!4 &453288389
 Transform:
   m_ObjectHideFlags: 0
@@ -1416,7 +1418,7 @@ AudioSource:
   m_GameObject: {fileID: 812571318}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2138001021906486165, guid: 6c27d92d8be684f41a21f41fb98ad552, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -3334,7 +3336,7 @@ AudioSource:
   m_GameObject: {fileID: 1548479998}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -44012849836472065, guid: 6c27d92d8be684f41a21f41fb98ad552, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -3740,8 +3742,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2.7411041, y: 0}
+  m_SizeDelta: {x: 5.4822, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1710242033
 MonoBehaviour:
@@ -7970,7 +7972,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8007,7 +8009,7 @@ RectTransform:
   m_Father: {fileID: 181240372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

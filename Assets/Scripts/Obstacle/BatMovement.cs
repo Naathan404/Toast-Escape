@@ -1,16 +1,14 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BatMovement : MonoBehaviour
 {
-    private float speed;
-    private Rigidbody2D rb;
-
-    private void Awake()
+    private float halfWidth;
+    float rightPos;
+    void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        speed = LevelGenerator.instance.getMoveSpeed() * 2;
+        halfWidth = GetComponent<Renderer>().bounds.extents.x;
     }
-
     private void Update()
     {
         Move();
@@ -18,10 +16,15 @@ public class BatMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.MovePosition(rb.position + Vector2.left * speed * Time.fixedDeltaTime);
-        if (rb.transform.position.x < Camera.main.transform.position.x - Camera.main.orthographicSize * Camera.main.aspect - 5f)
-        {
-            //Destroy(gameObject);
-        }
+        float speed = LevelGenerator.instance.getMoveSpeed() * 2.5f;
+        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        // if (rb.transform.position.x < Camera.main.transform.position.x - Camera.main.orthographicSize * Camera.main.aspect - 5f)
+        // {
+        //     //Destroy(gameObject);
+        // }
+        rightPos = transform.position.x + halfWidth;
+        float leftPosCam = Camera.main.transform.position.x - Camera.main.orthographicSize * Camera.main.aspect - 10f;
+        if (rightPos < leftPosCam)
+            Destroy(gameObject);
     }
 }

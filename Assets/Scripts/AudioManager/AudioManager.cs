@@ -28,6 +28,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip destroyObstacle;
     public AudioClip powerTimeOut;
     public AudioClip alert;
+    public AudioClip fillerSfx;
+
+    private float lastSFXTime = -1f;
+    private float sfxCoolDown = 0.1f;
 
     private void Start()
     {
@@ -37,7 +41,11 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(AudioClip sfx)
     {
-        SFXSource.PlayOneShot(sfx);
+        if (Time.unscaledTime - lastSFXTime >= sfxCoolDown)
+        {
+            SFXSource.PlayOneShot(sfx);
+            lastSFXTime = Time.unscaledTime;
+        }
     }
 
     public void FadeOutMusic()

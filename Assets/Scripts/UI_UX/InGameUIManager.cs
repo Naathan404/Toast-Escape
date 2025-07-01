@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
-
 public class InGameUIManager : MonoBehaviour
 {
     // Singleton
@@ -27,10 +26,13 @@ public class InGameUIManager : MonoBehaviour
 
     [Header("Text Settings")]
     [SerializeField] private TMP_Text coinText;
+    [SerializeField] private TMP_Text finalCoinText;
     [SerializeField] private TMP_Text toastNumberText;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text finalScoreText;
     [SerializeField] private TMP_Text highScoreText;
+
+    [SerializeField] private GameObject newRecordText;
 
 
     public void SetPlayingPanel(bool isActivate)
@@ -42,14 +44,14 @@ public class InGameUIManager : MonoBehaviour
     {
         gameOverPanel.SetActive(isActivate);
     }
-    
 
-    public void ActivateGameOverStage(int finalScore, int highScore)
+
+    public void ActivateGameOverStage(int finalScore, int highScore, int finalCoin)
     {
-        StartCoroutine(SetStagetGameOver(finalScore, highScore));
+        StartCoroutine(SetStagetGameOver(finalScore, highScore, finalCoin));
     }
 
-    private IEnumerator SetStagetGameOver(int finalScore, int highScore)
+    private IEnumerator SetStagetGameOver(int finalScore, int highScore, int finalCoin)
     {
         // Stage 1: Slow down screen
         AudioManager.instance.FadeOutMusic();
@@ -76,16 +78,25 @@ public class InGameUIManager : MonoBehaviour
             }
         }
 
-        // Stage 3: Pop up gaeme over UI
+        // Stage 3: Pop up game over UI
         if (gameOverPanel)
         {
             gameOverPanel.SetActive(true);
+            playingPanel.SetActive(false);
             UpdateFinalScoreText(finalScore);
             UpdateHighScoreText(highScore);
+            UpdateFinalCoinText(0);
+            yield return new WaitForSecondsRealtime(0.25f);
         }
-        playingPanel.SetActive(false);
+        AudioManager.instance.PlaySFX(AudioManager.instance.fillerSfx);
+        for (int i = 1; i <= finalCoin; i++)
+        {
+            UpdateFinalCoinText(i);
+            AudioManager.instance.PlaySFX(AudioManager.instance.fillerSfx);
+            float delay = Mathf.Clamp(i * 0.001f, 0, 0.999f);
+            yield return new WaitForSecondsRealtime(0.1f - delay);
+        }
     }
-
 
     public void UpdateCoinText(int coinAmount)
     {
@@ -110,5 +121,15 @@ public class InGameUIManager : MonoBehaviour
     public void UpdateHighScoreText(int highScore)
     {
         highScoreText.text = highScore.ToString();
+    }
+
+    public void UpdateFinalCoinText(int finalCoin)
+    {
+        finalCoinText.text = finalCoin.ToString();
+    }
+
+    public void SetNewRecordTextStatus(bool isActive)
+    {
+        newRecordText.SetActive(isActive);
     }
 }

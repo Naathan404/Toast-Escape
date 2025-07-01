@@ -8,7 +8,7 @@ public class CatGroupManager : MonoBehaviour
 
     [Header("Cat Group Settings")]
     public List<Cat> catList = new List<Cat>();
-    public GameObject catPrefab;
+    public List<GameObject> catPrefab = new List<GameObject>();
     [SerializeField] private float formatSpeed = 30f;
     [SerializeField] private float delayFactor;
     // private bool isJumping = false;
@@ -79,38 +79,6 @@ public class CatGroupManager : MonoBehaviour
         }
     }
 
-    /// Cach nhay cu: dieu khien ca nhom cung nhay voi 1 khoang jumpdelay chung, meo o index cang lon thi cang delay 
-    // private IEnumerator StartJumpWithDelay()
-    // {
-    //     for (int i = 0; i < catList.Count; i++)
-    //     {
-    //         catList[i].StartJump();
-    //         yield return new WaitForSeconds(jumpDelay);
-    //     }
-    // }
-
-    /// Dieu khien tung nhan vat nhay rieng biet voi delay dua vao khoang cach cua no toi leader
-    private IEnumerator JumpCatWithDelay(Cat cat, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        cat.StartJump();
-        Debug.Log("Meo nhay!");
-    }
-
-    private IEnumerator ExitJumpWithDelay(Cat cat, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        cat.ExitJump();
-        cat.SetBaseGravity();
-        Debug.Log("Meo roi!");
-    }
-
-    private IEnumerator SetGravityWithDelay(Cat cat, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        cat.SetGlideGravity();
-    }
-
     // On dinh doi hinh
     public void FormatGroup()
     {
@@ -119,7 +87,7 @@ public class CatGroupManager : MonoBehaviour
         UpdateLeaderSortingOrder();
 
         // Di chuyển bọn mèo di chuyển vị trí 1/3 phía trái màn hình
-        float targetX = Camera.main.ViewportToWorldPoint(new Vector3(0.35f, 0, 0)).x;
+        float targetX = Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0, 0)).x;
 
         if (!isBlocked)
         {
@@ -153,27 +121,6 @@ public class CatGroupManager : MonoBehaviour
         }
     }
 
-    public void BlockGroup()
-    {
-        isBlocked = true;
-    }
-    public void UnblockGroup()
-    {
-        isBlocked = false;
-    }
-
-    // Gan isGrounded của tất cả mèo 
-    public void SetIsGrounded(bool isTrue)
-    {
-        for (int i = 0; i < catList.Count; i++)
-        {
-            if (catList[i].IsGrounded() == true) continue;
-            catList[i].setIsGrounded(isTrue);
-            catList[i].setIsHoldingJump(isTrue);
-            catList[i].setIsGroundFalseWhenCatFalling();
-        }
-    }
-
     // Thêm mèo
     public void AddNewCat()
     {
@@ -186,7 +133,7 @@ public class CatGroupManager : MonoBehaviour
         {
             spawnPosition = transform.position;
         }
-        GameObject newCat = Instantiate(catPrefab, spawnPosition, Quaternion.identity);
+        GameObject newCat = Instantiate(catPrefab[0], spawnPosition, Quaternion.identity);
         if (newCat.GetComponent<CatCollisionHandler>() == null)
             newCat.AddComponent<CatCollisionHandler>();
         Cat cat = newCat.GetComponent<Cat>();
@@ -196,7 +143,7 @@ public class CatGroupManager : MonoBehaviour
 
         // Set sorting order cho mèo mới được thêm vào
         SpriteRenderer sr = cat.GetComponent<SpriteRenderer>();
-        if (catList.Count % 4 != 0 || catList.Count == 3)
+        if (catList.Count % 3 != 0 || catList.Count == 2)
         {
             sr.sortingOrder = Random.Range(0, 99);
             float colorScale = Mathf.Clamp(sr.sortingOrder / 90f, 0.6f, 1f);
@@ -210,16 +157,6 @@ public class CatGroupManager : MonoBehaviour
 
         // Tang diem 
         GameManager.instance.IncreaseScore();
-    }
-
-    private void UpdateLeaderSortingOrder()
-    {
-        if (catList.Count > 0)
-        {
-            catList[0].GetComponent<SpriteRenderer>().sortingOrder = 150;
-            catList[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            catList[0].transform.position = new Vector3(catList[0].transform.position.x, catList[0].transform.position.y, 1f);
-        }
     }
 
     // Xóa mèo
@@ -238,6 +175,45 @@ public class CatGroupManager : MonoBehaviour
 
         GameManager.instance.DecreaseScore();
     }
+
+// public void TransformCats(int transformIndex, float duration)
+// {
+//     StartCoroutine(TransformRoutine(transformIndex, duration));
+// }
+
+// private IEnumerator TransformRoutine(int index, float duration)
+// {
+//     List<Cat> newCats = new List<Cat>();
+
+//     for (int i = 0; i < catList.Count; i++)
+//     {
+//         Vector3 pos = catList[i].transform.position;
+//         Destroy(catList[i].gameObject);
+
+//         GameObject newCatObj = Instantiate(catPrefab[index], pos, Quaternion.identity);
+//         Cat newCat = newCatObj.GetComponent<Cat>();
+//         newCat.transform.SetParent(transform);
+//         newCats.Add(newCat);
+//     }
+
+//     catList = newCats;
+
+//     yield return new WaitForSeconds(duration);
+
+//     // Revert lại về catPrefab gốc
+//     for (int i = 0; i < catList.Count; i++)
+//     {
+//         Vector3 pos = catList[i].transform.position;
+//         Destroy(catList[i].gameObject);
+
+//         GameObject newCatObj = Instantiate(catPrefab[0], pos, Quaternion.identity);
+//         Cat newCat = newCatObj.GetComponent<Cat>();
+//         newCat.transform.SetParent(transform);
+//         newCats[i] = newCat;
+//     }
+
+//     catList = newCats;
+// }
 
     // Kiểm tra nếu con mèo ra khỏi màn hình thì xóa nó
     private void CheckCatsOffscreen()
@@ -267,11 +243,66 @@ public class CatGroupManager : MonoBehaviour
         }
     }
 
+    /// Dieu khien tung nhan vat nhay rieng biet voi delay dua vao khoang cach cua no toi leader
+    private IEnumerator JumpCatWithDelay(Cat cat, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        cat.StartJump();
+        Debug.Log("Meo nhay!");
+    }
+
+    private IEnumerator ExitJumpWithDelay(Cat cat, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        cat.ExitJump();
+        cat.SetBaseGravity();
+        Debug.Log("Meo roi!");
+    }
+
+    private IEnumerator SetGravityWithDelay(Cat cat, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        cat.SetGlideGravity();
+    }
+
+    private void UpdateLeaderSortingOrder()
+    {
+        if (catList.Count > 0)
+        {
+            catList[0].GetComponent<SpriteRenderer>().sortingOrder = 150;
+            catList[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            catList[0].transform.position = new Vector3(catList[0].transform.position.x, catList[0].transform.position.y, 1f);
+        }
+    }
+
+    // Gan isGrounded của tất cả mèo 
+    public void SetIsGrounded(bool isTrue)
+    {
+        for (int i = 0; i < catList.Count; i++)
+        {
+            if (catList[i].IsGrounded() == true) continue;
+            catList[i].setIsGrounded(isTrue);
+            catList[i].setIsHoldingJump(isTrue);
+            catList[i].setIsGroundFalseWhenCatFalling();
+        }
+    }
+
+    public void BlockGroup()
+    {
+        isBlocked = true;
+    }
+    public void UnblockGroup()
+    {
+        isBlocked = false;
+    }
+
     // Get con mèo ở index 0
     public GameObject getLeaderCat()
     {
         if (catList.Count <= 0) return null;
         return catList[0].gameObject;
     }
+
+    public int GetTransformVariety() => catPrefab.Count - 1;
     
 }

@@ -10,7 +10,7 @@ public abstract class BaseTab : MonoBehaviour
     [SerializeField] protected GameObject itemUIPrefab;
     
     protected abstract void LoadTab();
-    protected abstract void TryBuyItem(ShopItem item, Button buyButton);
+    protected abstract void TryBuyItem(ShopItem item, Button buyButton, Image imageButton);
 
     // Text Button
     public void ResetPurchasedItems()

@@ -10,7 +10,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private float maxSpeed = 15f;
     [SerializeField] private float increasingMoveSpeedFactor;
     [SerializeField] private float moveSpeed;
-    
+
     [Header("Platform Chunk Spawn Settings")]
     [SerializeField] private float easyLevelMark;
     [SerializeField] private float mediumLevelMark;
@@ -44,8 +44,8 @@ public class LevelGenerator : MonoBehaviour
     private void Start()
     {
         // Initialize the level generator
-        moveSpeed = baseSpeed;
         InitLevelStart();
+        moveSpeed = baseSpeed;
     }
 
     private void InitLevelStart()
@@ -78,7 +78,7 @@ public class LevelGenerator : MonoBehaviour
         if (moveSpeed >= hardLevelMark && moveSpeed < extremeLevelMark) chosenLevelPart = HardLevelList[Random.Range(0, HardLevelList.Count)];
         if (moveSpeed >= extremeLevelMark && moveSpeed < hellLevelMark) chosenLevelPart = ExtremeLevelList[Random.Range(0, ExtremeLevelList.Count)];
         if (moveSpeed >= hellLevelMark) chosenLevelPart = HellLevelList[Random.Range(0, HellLevelList.Count)];
-        
+
         Transform levelPartTransform = Instantiate(chosenLevelPart, lastEndPosition.position, Quaternion.identity);
         lastEndPosition = levelPartTransform.Find("EndPosition");
     }
@@ -89,7 +89,10 @@ public class LevelGenerator : MonoBehaviour
         moveSpeed = Mathf.Clamp(moveSpeed, baseSpeed, maxSpeed);
     }
 
-    public float getMoveSpeed() => moveSpeed;
+    public float getMoveSpeed()
+    {
+        return moveSpeed;
+    }
 
     //     private Transform SpawnLevelPart(Vector3 spawnPos)
     //     {

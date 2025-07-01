@@ -23,6 +23,8 @@ public class BoostsTab : BaseTab
             itemUI.transform.Find("Description").GetComponent<TextMeshProUGUI>().text = item.description;
 
             Button buyButton = itemUI.transform.Find("BuyButton").GetComponent<Button>();
+            Image imageButton = itemUI.transform.Find("BuyButton").GetComponent<Image>();
+            imageButton.color = new Color(1f, 0.5f, 0.5f, 1f);
 
             // Kiem tra da mua hay chua, neu da mua thi hien "Owned" khong hien "Buy"
             // PlayerPrefs.GetInt(item.itemName, 0) == 1
@@ -30,16 +32,17 @@ public class BoostsTab : BaseTab
             {
                 buyButton.interactable = false;
                 buyButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Selected";
+                imageButton.color = new Color(0f, 1f, 0f, 1f);
             }
 
             buyButton.onClick.AddListener(() =>
             {
-                TryBuyItem(item, buyButton);
+                TryBuyItem(item, buyButton, imageButton);
             });
         }
     }
 
-    protected override void TryBuyItem(ShopItem item, Button buyButton)
+    protected override void TryBuyItem(ShopItem item, Button buyButton, Image imageButton)
     {
         int currentCoins = PlayerPrefs.GetInt("TotalCoin", 0);
 
@@ -51,6 +54,7 @@ public class BoostsTab : BaseTab
             // Cap nhat nut bam
             buyButton.interactable = false;
             buyButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Selected";
+            imageButton.color = new Color(0f, 1f, 0f, 1f);
 
             // Cap nhat so tien con lai
             ShopManager.instance.UpdateCoinUI();
@@ -62,6 +66,7 @@ public class BoostsTab : BaseTab
         else
         {
             Debug.Log("Khong du tien hoac item da bi mua");
+            imageButton.color = new Color(1f, 0.5f, 0.5f, 1f);
         }
     }
 }

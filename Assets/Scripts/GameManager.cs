@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool isGameOver = false;
     private int rewardPerCoin = 1;
     private const string HIGH_SCORE = "HighScore";
+    private bool isNewRecord = false;
 
     [Header("Boosts Settings")]
     [SerializeField] private GameObject bonusMinionsGroup;
@@ -48,9 +49,9 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
 
         // Bat UI Game over
-        InGameUIManager.instance.ActivateGameOverStage(currentScore, PlayerPrefs.GetInt(HIGH_SCORE, 0));
+        InGameUIManager.instance.ActivateGameOverStage(currentScore, PlayerPrefs.GetInt(HIGH_SCORE, 0), currentCoin);
 
-        // Luu so tien da thu tha duoc
+        // Luu so tien da thu thap duoc
         int totalCoin = PlayerPrefs.GetInt("TotalCoin", 0);
         PlayerPrefs.SetInt("TotalCoin", totalCoin + currentCoin);
         PlayerPrefs.Save();
@@ -75,6 +76,12 @@ public class GameManager : MonoBehaviour
         if (currentScore > PlayerPrefs.GetInt(HIGH_SCORE, 0))
         {
             PlayerPrefs.SetInt(HIGH_SCORE, currentScore);
+            if (!isNewRecord)
+            {
+                isNewRecord = true;
+                InGameUIManager.instance.SetNewRecordTextStatus(true);
+                AudioManager.instance.PlaySFX(AudioManager.instance.fillerSfx);
+            }
         }
     }
     public void DecreaseScore()

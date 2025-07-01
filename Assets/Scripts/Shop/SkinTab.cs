@@ -26,6 +26,7 @@ public class SkinTab : BaseTab
             itemUI.transform.Find("Description").GetComponent<TextMeshProUGUI>().text = item.description;
 
             Button buyButton = itemUI.transform.Find("BuyButton").GetComponent<Button>();
+            Image imageButton = itemUI.transform.Find("BuyButton").GetComponent<Image>();
             TextMeshProUGUI buttonText = buyButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
             // Kiem tra da mua hay chua, neu da mua thi hien "Owned" khong hien "Buy"
@@ -36,11 +37,13 @@ public class SkinTab : BaseTab
                 if (skinItem.SkinID == selectedSkinID)
                 {
                     buttonText.text = "IN USE";
+                    imageButton.color = new Color(0f, 1f, 0f, 1f);
                     buyButton.interactable = false;
                 }
                 else
                 {
                     buttonText.text = "USE";
+                    imageButton.color = new Color(0f, 1f, 0f, 1f);
                     buyButton.onClick.AddListener(() =>
                     {
                         SelectSkin(skinItem, buttonText);
@@ -52,14 +55,15 @@ public class SkinTab : BaseTab
             {
                 buyButton.onClick.AddListener(() =>
                 {
-                    TryBuyItem(item, buyButton);
+                    TryBuyItem(item, buyButton, imageButton);
                 });
                 buttonText.text = "BUY";
+                imageButton.color = new Color(1f, 0.5f, 0.5f, 1f);
             }
         }
     }
 
-    protected override void TryBuyItem(ShopItem item, Button buyButton)
+    protected override void TryBuyItem(ShopItem item, Button buyButton, Image imageButton)
     {
         int currentCoins = PlayerPrefs.GetInt("TotalCoin", 0);
 
@@ -84,6 +88,7 @@ public class SkinTab : BaseTab
         else
         {
             Debug.Log("Không đủ tiền hoặc đã mua");
+            imageButton.color = new Color(1f, 0.5f, 0.5f, 1f);
         }
     }
 
@@ -103,5 +108,10 @@ public class SkinTab : BaseTab
         }
 
         LoadTab();
+    }
+
+    void ResetColor(Image image)
+    {
+        image.color = new Color(1f, 0.5f, 0.5f, 1f);
     }
 }
