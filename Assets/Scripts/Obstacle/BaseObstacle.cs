@@ -52,8 +52,14 @@ public class BaseObstacle : MonoBehaviour
 
     protected virtual void DestroyObstacle()
     {
-        EffectManager.instance.CallDestroyObstacleEffect(this.transform.position);
-        Destroy(this.gameObject);
+        // Call effect
+        GameObject effect = EffectManager.instance.GetObstacleDestroyedEffect();
+        effect.transform.position = this.transform.position;
+        effect.SetActive(true);
+        EffectManager.instance.ReturnPool(effect, 0.2f);
+
+        ///
+        gameObject.SetActive(false);
 
         // Dat isGrounded = true cho toan bo
         CatGroupManager.instance.SetIsGrounded(true);

@@ -92,7 +92,9 @@ public class InGameUIManager : MonoBehaviour
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.fillerSfx);
             UpdateFinalCoinText(i);
-            float delay = Mathf.Clamp(i * 0.001f, 0, 0.999f);
+            float t = (float)i / finalCoin;
+            float delay = Mathf.Lerp(0.1f, 0f, t * t);
+            //float delay = Mathf.Clamp(i * 0.001f, 0, 0.999f);
             yield return new WaitForSecondsRealtime(0.1f - delay);
         }
     }

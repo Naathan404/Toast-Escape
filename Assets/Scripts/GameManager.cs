@@ -37,11 +37,6 @@ public class GameManager : MonoBehaviour
             ActivateSelectedBoost();
     }
 
-    private void Update()
-    {
-        
-    }
-
     /// Handling game over
     public void GameOver()
     {

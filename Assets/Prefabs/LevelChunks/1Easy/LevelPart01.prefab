@@ -1263,7 +1263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 561191868036936683, guid: d00630ce86e0802469023f3d33ec3ec4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.33
+      value: 1.11
       objectReference: {fileID: 0}
     - target: {fileID: 561191868036936683, guid: d00630ce86e0802469023f3d33ec3ec4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1300,22 +1300,6 @@ PrefabInstance:
     - target: {fileID: 3863124225213520967, guid: d00630ce86e0802469023f3d33ec3ec4, type: 3}
       propertyPath: m_Name
       value: Flour Bag
-      objectReference: {fileID: 0}
-    - target: {fileID: 7545009541276063333, guid: d00630ce86e0802469023f3d33ec3ec4, type: 3}
-      propertyPath: m_Size.x
-      value: 0.6641567
-      objectReference: {fileID: 0}
-    - target: {fileID: 7545009541276063333, guid: d00630ce86e0802469023f3d33ec3ec4, type: 3}
-      propertyPath: m_Size.y
-      value: 0.8240819
-      objectReference: {fileID: 0}
-    - target: {fileID: 7545009541276063333, guid: d00630ce86e0802469023f3d33ec3ec4, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7545009541276063333, guid: d00630ce86e0802469023f3d33ec3ec4, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.0026654154
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1369,7 +1353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4398906994551897308, guid: 665336d0f3fe33c4d924fa3cb35a1d56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.77
+      value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 4398906994551897308, guid: 665336d0f3fe33c4d924fa3cb35a1d56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -14,9 +14,11 @@ public class SpawnIncomingObstacle : MonoBehaviour
     {
         if (collision.CompareTag("Cat"))
         {
-            GameObject incomingObstacle = Instantiate(incomingObstaclePrefab, new Vector3(rightPosCam, transform.position.y + offsetY), Quaternion.identity);
-            //Destroy(incomingObstacle);
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
+            GameObject obs = IncomingObstaclePool.instance.GetObstacle();
+            obs.transform.position = new Vector3(rightPosCam, transform.position.y + offsetY);
+            obs.SetActive(true);
+            IncomingObstaclePool.instance.ReturnPool(obs, 3f);
         }
     }
 }

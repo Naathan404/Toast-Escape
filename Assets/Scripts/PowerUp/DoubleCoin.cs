@@ -17,7 +17,12 @@ public class DoubleCoin : BasePowerUp
         Debug.Log("Deactivate double coin");
         isActiveDoubleCoin = false;
         GameManager.instance.DoubleCoinReward(false);
-        EffectManager.instance.CallMagnetDeactivateEffect(this.transform.position);
         AudioManager.instance.PlaySFX(AudioManager.instance.powerTimeOut);
+
+        // Effect
+        GameObject effect = EffectManager.instance.GetPowerUpDeactivateEffect();
+        effect.transform.position = this.transform.position;
+        effect.SetActive(true);
+        EffectManager.instance.ReturnPool(effect, 0.3f);
     }
 }

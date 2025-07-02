@@ -53,7 +53,12 @@ public class CoinMagnet : BasePowerUp
         Debug.Log("Deactivate magnet");
         isActiveMagnet = false;
         magnetSprite.SetActive(false);
-        EffectManager.instance.CallMagnetDeactivateEffect(this.transform.position);
         AudioManager.instance.PlaySFX(AudioManager.instance.powerTimeOut);
+
+        // Effect
+        GameObject effect = EffectManager.instance.GetPowerUpDeactivateEffect();
+        effect.transform.position = this.transform.position;
+        effect.SetActive(true);
+        EffectManager.instance.ReturnPool(effect, 0.3f);
     }
 }

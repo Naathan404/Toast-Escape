@@ -5,20 +5,22 @@ using NUnit.Framework;
 public class IncomingObstacle : MonoBehaviour
 {
     [SerializeField] private GameObject warningSignPrefab;
-    [SerializeField] private GameObject obstaclePrefab;
     [SerializeField] private float warningDuration = 2f;
+    [SerializeField] private GameObject batSpawnPoint;
 
-    private void Start()
+    private void OnEnable()
     {
         AudioManager.instance.PlaySFX(AudioManager.instance.alert);
+        warningSignPrefab.SetActive(true);
         StartCoroutine(StartWithWarning(warningDuration));
     }
 
     IEnumerator StartWithWarning(float duration)
     {
-        warningSignPrefab.SetActive(true);
         yield return new WaitForSeconds(duration);
         warningSignPrefab.SetActive(false);
-        obstaclePrefab.SetActive(true);
+        GameObject bat = IncomingObstaclePool.instance.GetBat();
+        bat.transform.position = batSpawnPoint.transform.position;
+        bat.SetActive(true);
     }
 }
