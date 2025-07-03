@@ -1550,9 +1550,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2064846291647678756}
   - component: {fileID: 7271712051410948909}
+  - component: {fileID: 8031717429392366947}
   m_Layer: 0
   m_Name: TwoLineCoinPattern
-  m_TagString: Untagged
+  m_TagString: CoinPattern
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1596,6 +1597,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 280b8801832482b4cb52a4d8e9132d36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8031717429392366947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128421606724879617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3be619893b45b54c8e16a4046f295e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6732559199450856644

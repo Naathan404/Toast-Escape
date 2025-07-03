@@ -12,6 +12,12 @@ public class BaseObstacle : MonoBehaviour
     [SerializeField] private TextMeshProUGUI counterText;
     protected bool isDestroyed = false;
 
+    private void OnEnable()
+    {
+        UpdateCounterText();
+        isDestroyed = false;
+    }
+
     protected virtual void Start()
     {
         UpdateCounterText();

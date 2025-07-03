@@ -8,6 +8,13 @@ public class IncomingObstacle : MonoBehaviour
     [SerializeField] private float warningDuration = 2f;
     [SerializeField] private GameObject batSpawnPoint;
 
+    private void Start()
+    {
+        AudioManager.instance.PlaySFX(AudioManager.instance.alert);
+        warningSignPrefab.SetActive(true);
+        StartCoroutine(StartWithWarning(warningDuration));
+    }
+
     private void OnEnable()
     {
         AudioManager.instance.PlaySFX(AudioManager.instance.alert);

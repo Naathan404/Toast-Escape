@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 2090135398685328579}
   - component: {fileID: 73481072050357163}
   - component: {fileID: 6732815638395301524}
+  - component: {fileID: 6021686541907883482}
   m_Layer: 0
   m_Name: EasyLevelPart04
   m_TagString: Untagged
@@ -379,6 +380,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6021686541907883482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5255498889483301500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3be619893b45b54c8e16a4046f295e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5345186670814994787
 GameObject:
   m_ObjectHideFlags: 0

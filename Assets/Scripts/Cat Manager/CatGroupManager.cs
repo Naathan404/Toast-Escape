@@ -54,7 +54,7 @@ public class CatGroupManager : MonoBehaviour
             {
                 float delay = (toastList[0].transform.position.x - toastList[i].transform.position.x) * delayFactor;
                 delay = delay < 0 ? delay * -1 : delay;
-                StartCoroutine(JumpCatWithDelay(toastList[i], delay));
+                StartCoroutine(JumpWithDelay(toastList[i], delay));
             }
         }
 
@@ -133,13 +133,11 @@ public class CatGroupManager : MonoBehaviour
         {
             spawnPosition = transform.position;
         }
-        GameObject newToast = Instantiate(toastPrefab[0], spawnPosition, Quaternion.identity);
-        if (newToast.GetComponent<CatCollisionHandler>() == null)
-            newToast.AddComponent<CatCollisionHandler>();
+        GameObject newToast = ToastPool.instance.GetToast();
+        newToast.transform.position = spawnPosition;
+        newToast.SetActive(true);
         Toast toast = newToast.GetComponent<Toast>();
         toastList.Add(toast);
-        // Set parent là GameObject đang giữ script này
-        toast.transform.SetParent(transform);
 
         // Set sorting order cho mèo mới được thêm vào
         SpriteRenderer sr = toast.GetComponent<SpriteRenderer>();
@@ -168,7 +166,8 @@ public class CatGroupManager : MonoBehaviour
         {
             if (toast == toastList[0]) isLeader = true;
             toastList.Remove(toast);
-            Destroy(toast.gameObject);
+            // Tra ve pool
+            toast.gameObject.SetActive(false);
             if (isLeader)
                 UpdateLeaderSortingOrder();
         }
@@ -235,20 +234,21 @@ public class CatGroupManager : MonoBehaviour
             // Nếu ra khỏi màn hình bên trái hoặc rớt xuống dưới
             if (toastPos.x < leftBound - 2f || toastPos.y < bottomBound - 5f)
             {
-                Toast catToRemove = toastList[i];
+                // Tra ve pool
+                toastList[i].gameObject.SetActive(false);
+                // Xoa khoi list
                 toastList.RemoveAt(i);
                 GameManager.instance.DecreaseScore();
-                Destroy(catToRemove.gameObject);
             }
         }
     }
 
     /// Dieu khien tung nhan vat nhay rieng biet voi delay dua vao khoang cach cua no toi leader
-    private IEnumerator JumpCatWithDelay(Toast toast, float delay)
+    private IEnumerator JumpWithDelay(Toast toast, float delay)
     {
         yield return new WaitForSeconds(delay);
         toast.StartJump();
-        Debug.Log("Meo nhay!");
+        //Debug.Log("Meo nhay!");
     }
 
     private IEnumerator ExitJumpWithDelay(Toast toast, float delay)
@@ -256,7 +256,7 @@ public class CatGroupManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         toast.ExitJump();
         toast.SetBaseGravity();
-        Debug.Log("Meo roi!");
+        //ebug.Log("Meo roi!");
     }
 
     private IEnumerator SetGravityWithDelay(Toast toast, float delay)
@@ -297,7 +297,7 @@ public class CatGroupManager : MonoBehaviour
     }
 
     // Get con mèo ở index 0
-    public GameObject getLeaderCat()
+    public GameObject getLeader()
     {
         if (toastList.Count <= 0) return null;
         return toastList[0].gameObject;

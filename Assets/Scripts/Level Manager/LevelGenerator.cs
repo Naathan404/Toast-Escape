@@ -76,6 +76,11 @@ public class LevelGenerator : MonoBehaviour
         chosenLevelPart.transform.position = lastEndPosition.position;
         foreach (Transform child in chosenLevelPart.transform)
         {
+            if (child.gameObject.CompareTag("CoinPattern"))
+            {
+                child.gameObject.SetActive(false);
+                continue;
+            }
             child.gameObject.SetActive(true);
         }
         chosenLevelPart.SetActive(true);

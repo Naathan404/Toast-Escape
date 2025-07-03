@@ -37,6 +37,7 @@ public class PlatformPool : MonoBehaviour
         for (int i = 0; i < EasyPlatformList.Count; i++)
         {
             GameObject lv = Instantiate(EasyPlatformList[i], EasyPlatformPoolParent);
+            if (lv.GetComponent<CoinPatternResetter>() == null) lv.AddComponent<CoinPatternResetter>();
             lv.SetActive(false);
             EasyPlatformPool.Add(lv);
         }
@@ -44,6 +45,7 @@ public class PlatformPool : MonoBehaviour
         for (int i = 0; i < MediumPlatformList.Count; i++)
         {
             GameObject lv = Instantiate(MediumPlatformList[i], MediumPlatformPoolParent);
+            if (lv.GetComponent<CoinPatternResetter>() == null) lv.AddComponent<CoinPatternResetter>();
             lv.SetActive(false);
             MediumPlatformPool.Add(lv);
         }
@@ -51,6 +53,7 @@ public class PlatformPool : MonoBehaviour
         for (int i = 0; i < HardPlatformList.Count; i++)
         {
             GameObject lv = Instantiate(HardPlatformList[i], HardPlatformPoolParent);
+            if (lv.GetComponent<CoinPatternResetter>() == null) lv.AddComponent<CoinPatternResetter>();
             lv.SetActive(false);
             HardPlatformPool.Add(lv);
         }
@@ -58,6 +61,7 @@ public class PlatformPool : MonoBehaviour
         for (int i = 0; i < ExtremePlatformList.Count; i++)
         {
             GameObject lv = Instantiate(ExtremePlatformList[i], ExtremePlatformPoolParent);
+            if (lv.GetComponent<CoinPatternResetter>() == null) lv.AddComponent<CoinPatternResetter>();
             lv.SetActive(false);
             ExtremePlatformPool.Add(lv);
         }
@@ -65,6 +69,7 @@ public class PlatformPool : MonoBehaviour
         for (int i = 0; i < HellPlatformList.Count; i++)
         {
             GameObject lv = Instantiate(HellPlatformList[i], HellPlatformPoolParent);
+            if (lv.GetComponent<CoinPatternResetter>() == null) lv.AddComponent<CoinPatternResetter>();
             lv.SetActive(false);
             HellPlatformPool.Add(lv);
         }
@@ -78,7 +83,13 @@ public class PlatformPool : MonoBehaviour
         do
         {
             plf = EasyPlatformPool[Random.Range(0, EasyPlatformPool.Count)];
-            if (!plf.activeInHierarchy) return plf;
+            if (!plf.activeInHierarchy)
+            {
+                CoinPatternResetter resetter = plf.GetComponent<CoinPatternResetter>();
+                if (resetter != null)
+                    resetter.ResetPattern();
+                return plf;
+            }
             i++;
         } while (i < EasyPlatformPool.Count);
         GameObject newPlf = Instantiate(EasyPlatformList[Random.Range(0, EasyPlatformList.Count)], EasyPlatformPoolParent);
@@ -94,7 +105,13 @@ public class PlatformPool : MonoBehaviour
         do
         {
             plf = MediumPlatformPool[Random.Range(0, MediumPlatformPool.Count)];
-            if (!plf.activeInHierarchy) return plf;
+            if (!plf.activeInHierarchy)
+            {
+                CoinPatternResetter resetter = plf.GetComponent<CoinPatternResetter>();
+                if (resetter != null)
+                    resetter.ResetPattern();
+                return plf;
+            }
             i++;
         } while (i < MediumPlatformPool.Count);
         GameObject newPlf = Instantiate(MediumPlatformList[Random.Range(0, MediumPlatformList.Count)], MediumPlatformPoolParent);
@@ -110,7 +127,13 @@ public class PlatformPool : MonoBehaviour
         do
         {
             plf = HardPlatformPool[Random.Range(0, HardPlatformPool.Count)];
-            if (!plf.activeInHierarchy) return plf;
+            if (!plf.activeInHierarchy)
+            {
+                CoinPatternResetter resetter = plf.GetComponent<CoinPatternResetter>();
+                if (resetter != null)
+                    resetter.ResetPattern();
+                return plf;
+            }
             i++;
         } while (i < HardPlatformPool.Count);
         GameObject newPlf = Instantiate(HardPlatformList[Random.Range(0, HardPlatformList.Count)], HardPlatformPoolParent);
@@ -126,7 +149,13 @@ public class PlatformPool : MonoBehaviour
         do
         {
             plf = ExtremePlatformPool[Random.Range(0, ExtremePlatformPool.Count)];
-            if (!plf.activeInHierarchy) return plf;
+            if (!plf.activeInHierarchy)
+            {
+                CoinPatternResetter resetter = plf.GetComponent<CoinPatternResetter>();
+                if (resetter != null)
+                    resetter.ResetPattern();
+                return plf;
+            }
             i++;
         } while (i < ExtremePlatformPool.Count);
         GameObject newPlf = Instantiate(ExtremePlatformList[Random.Range(0, ExtremePlatformList.Count)], ExtremePlatformPoolParent);
@@ -142,7 +171,13 @@ public class PlatformPool : MonoBehaviour
         do
         {
             plf = HellPlatformPool[Random.Range(0, HellPlatformPool.Count)];
-            if (!plf.activeInHierarchy) return plf;
+            if (!plf.activeInHierarchy)
+            {
+                CoinPatternResetter resetter = plf.GetComponent<CoinPatternResetter>();
+                if (resetter != null)
+                    resetter.ResetPattern();
+                return plf;
+            }
             i++;
         } while (i < HellPlatformPool.Count);
         GameObject newPlf = Instantiate(HellPlatformList[Random.Range(0, HellPlatformList.Count)], HellPlatformPoolParent);

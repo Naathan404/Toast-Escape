@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using System;
 
-public class CatCollisionHandler : MonoBehaviour
+public class ToastCollisionHandler : MonoBehaviour
 {
 
     private void OnCollisionEnter2D(Collision2D other)
