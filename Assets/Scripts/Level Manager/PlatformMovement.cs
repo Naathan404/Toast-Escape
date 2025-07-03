@@ -6,10 +6,9 @@ public class PlaformMovement : MonoBehaviour
     [SerializeField] private float rightPos;
     [SerializeField] private float leftScreenPos;
 
-
-    void Start()
+    private void Onable()
     {
-        // De day vi chua biet lam gi
+        
     }
 
     private void Update()
@@ -29,7 +28,7 @@ public class PlaformMovement : MonoBehaviour
         leftScreenPos = Camera.main.transform.position.x - Camera.main.orthographicSize * Camera.main.aspect - 120;
         if (rightPos < leftScreenPos)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

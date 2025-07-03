@@ -103,7 +103,7 @@ public class CatCollisionHandler : MonoBehaviour
             collision.gameObject.SetActive(false);
 
             AudioManager.instance.PlaySFX(AudioManager.instance.hitBombSFX);
-            CatGroupManager.instance.RemoveCat(this.GetComponent<Cat>());
+            CatGroupManager.instance.RemoveCat(this.GetComponent<Toast>());
 
             // Call effect
             GameObject effect = EffectManager.instance.GetExplosionEffect();
@@ -118,7 +118,7 @@ public class CatCollisionHandler : MonoBehaviour
             collision.gameObject.SetActive(false);
 
             AudioManager.instance.PlaySFX(AudioManager.instance.hitBombSFX);
-            CatGroupManager.instance.RemoveCat(this.GetComponent<Cat>());
+            CatGroupManager.instance.RemoveCat(this.GetComponent<Toast>());
 
             // Call effect
             GameObject effect = EffectManager.instance.GetExplosionEffect();
@@ -128,4 +128,3 @@ public class CatCollisionHandler : MonoBehaviour
         }
     }
 }
-

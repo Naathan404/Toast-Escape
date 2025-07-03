@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Cat : MonoBehaviour
+public class Toast : MonoBehaviour
 {
     [Header("Jump Settings")]
     [SerializeField] private float baseJumpForce;
@@ -87,7 +87,7 @@ public class Cat : MonoBehaviour
     public void setIsGrounded(bool isTrue) { isGrounded = isTrue; }
     public void setIsHoldingJump(bool isTrue) { isHoldingJump = isTrue; }
 
-    public void setIsGroundFalseWhenCatFalling()
+    public void setIsGroundFalseWhenFalling()
     {
         if (isGrounded && rb.linearVelocity.y < -0.5f)
         {

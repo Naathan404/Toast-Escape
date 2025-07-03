@@ -1302,7 +1302,8 @@ PrefabInstance:
       value: Flour Bag
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3466801935506800805, guid: d00630ce86e0802469023f3d33ec3ec4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d00630ce86e0802469023f3d33ec3ec4, type: 3}

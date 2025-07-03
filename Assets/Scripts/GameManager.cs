@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 public class GameManager : MonoBehaviour
@@ -10,6 +9,7 @@ public class GameManager : MonoBehaviour
     private int rewardPerCoin = 1;
     private const string HIGH_SCORE = "HighScore";
     private bool isNewRecord = false;
+    private bool isDoubleCoinBoostSelected = false;
 
     [Header("Boosts Settings")]
     [SerializeField] private GameObject bonusMinionsGroup;
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         InGameUIManager.instance.SetPlayingPanel(true);
         InGameUIManager.instance.SetGameOverPanel(false);
-        currentScore = CatGroupManager.instance.catList.Count;
+        currentScore = CatGroupManager.instance.toastList.Count;
         if (BoostManager.instance != null)
             ActivateSelectedBoost();
     }
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore()
     {
         currentScore++;
-        InGameUIManager.instance.UpdateCurrentToastNumberText(CatGroupManager.instance.catList.Count);
+        InGameUIManager.instance.UpdateCurrentToastNumberText(CatGroupManager.instance.toastList.Count);
         InGameUIManager.instance.UpdateCurrentScoreText(currentScore);
         if (currentScore > PlayerPrefs.GetInt(HIGH_SCORE, 0))
         {
@@ -81,11 +81,22 @@ public class GameManager : MonoBehaviour
     }
     public void DecreaseScore()
     {
-        InGameUIManager.instance.UpdateCurrentToastNumberText(CatGroupManager.instance.catList.Count);
+        InGameUIManager.instance.UpdateCurrentToastNumberText(CatGroupManager.instance.toastList.Count);
     }
     public void IncreaseCoin()
     {
-        currentCoin += rewardPerCoin;
+        int coinRewardFactor = 1;
+        if (isDoubleCoinBoostSelected)
+        {
+            float ratio = Random.Range(0f, 1f);
+            if (ratio <= 0.6f)
+                coinRewardFactor = 1;
+            else if (ratio > 0.6f && ratio <= 0.9f)
+                coinRewardFactor = 2;
+            else
+                coinRewardFactor = 3;
+        }
+        currentCoin += rewardPerCoin * coinRewardFactor;
         InGameUIManager.instance.UpdateCoinText(currentCoin);
     }
 
@@ -96,10 +107,11 @@ public class GameManager : MonoBehaviour
             bonusMinionsGroup.SetActive(true);
             Debug.Log("Activate bonus toast");
         }
-        if (BoostManager.instance.isBoostActivate("Double Coin"))
+        if (BoostManager.instance.isBoostActivate("MultiCoin"))
         {
-            rewardPerCoin = 2;
-            Debug.Log("Activate double coin");
+            // rewardPerCoin = 2;
+            isDoubleCoinBoostSelected = true;
+            Debug.Log("Activate Multicoin");
         }
         if (BoostManager.instance.isBoostActivate("Magnet"))
         {

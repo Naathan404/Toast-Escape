@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd8ac5e483c5d5e4eac398b292b581cb, type: 3}
-  m_Name: boost_DoubleCoin
+  m_Name: boost_MultiCoin
   m_EditorClassIdentifier: 
-  itemName: Double Coin
+  itemName: MultiCoin
   itemIcon: {fileID: 3941865155255965694, guid: bba839959d0b4a048b64f17b4db467d9, type: 3}
-  description: double your collected coin in the next run
+  description: You recieve coin randomly between 1 and 3 per one coin token
   price: 200
   isPurchased: 0
   BoostID: 2

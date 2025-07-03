@@ -17,16 +17,11 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private float hardLevelMark;
     [SerializeField] private float extremeLevelMark;
     [SerializeField] private float hellLevelMark;
-    [Header("Chunk Lists")]
+    [Header("Start Platform")]
     [SerializeField] private Transform LevelStart;
-    [SerializeField] private List<Transform> EasyLevelList;
-    [SerializeField] private List<Transform> MediumLevelList;
-    [SerializeField] private List<Transform> HardLevelList;
-    [SerializeField] private List<Transform> ExtremeLevelList;
-    [SerializeField] private List<Transform> HellLevelList;
 
     [Header("Components")]
-    [SerializeField] private Cat leaderCat;
+    [SerializeField] private Toast leaderToast;
     [SerializeField] private Camera mainCamera;
     private Transform lastEndPosition;
 
@@ -72,15 +67,19 @@ public class LevelGenerator : MonoBehaviour
 
     private void SpawnLevel()
     {
-        Transform chosenLevelPart;
-        chosenLevelPart = EasyLevelList[Random.Range(0, EasyLevelList.Count)];
-        if (moveSpeed >= mediumLevelMark && moveSpeed < hardLevelMark) chosenLevelPart = MediumLevelList[Random.Range(0, MediumLevelList.Count)];
-        if (moveSpeed >= hardLevelMark && moveSpeed < extremeLevelMark) chosenLevelPart = HardLevelList[Random.Range(0, HardLevelList.Count)];
-        if (moveSpeed >= extremeLevelMark && moveSpeed < hellLevelMark) chosenLevelPart = ExtremeLevelList[Random.Range(0, ExtremeLevelList.Count)];
-        if (moveSpeed >= hellLevelMark) chosenLevelPart = HellLevelList[Random.Range(0, HellLevelList.Count)];
-
-        Transform levelPartTransform = Instantiate(chosenLevelPart, lastEndPosition.position, Quaternion.identity);
-        lastEndPosition = levelPartTransform.Find("EndPosition");
+        GameObject chosenLevelPart;
+        chosenLevelPart = PlatformPool.instance.GetEasyPlatform(); ;
+        if (moveSpeed >= mediumLevelMark && moveSpeed < hardLevelMark) chosenLevelPart = PlatformPool.instance.GetMediumPlatform();
+        if (moveSpeed >= hardLevelMark && moveSpeed < extremeLevelMark) chosenLevelPart = PlatformPool.instance.GetHardPlatform();
+        if (moveSpeed >= extremeLevelMark && moveSpeed < hellLevelMark) chosenLevelPart = PlatformPool.instance.GetExtremePlatform();
+        if (moveSpeed >= hellLevelMark) chosenLevelPart = PlatformPool.instance.GetHellPlatform();
+        chosenLevelPart.transform.position = lastEndPosition.position;
+        foreach (Transform child in chosenLevelPart.transform)
+        {
+            child.gameObject.SetActive(true);
+        }
+        chosenLevelPart.SetActive(true);
+        lastEndPosition = chosenLevelPart.transform.Find("EndPosition");
     }
 
     private void IncreasingMoveSpeed()
@@ -93,10 +92,4 @@ public class LevelGenerator : MonoBehaviour
     {
         return moveSpeed;
     }
-
-    //     private Transform SpawnLevelPart(Vector3 spawnPos)
-    //     {
-    //         Transform levelPartTransform = Instantiate(Level01, spawnPos, Quaternion.identity);
-    //         return levelPartTransform;
-    //     }
 }

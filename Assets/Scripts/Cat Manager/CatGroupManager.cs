@@ -6,9 +6,9 @@ using UnityEngine;
 public class CatGroupManager : MonoBehaviour
 {
 
-    [Header("Cat Group Settings")]
-    public List<Cat> catList = new List<Cat>();
-    public List<GameObject> catPrefab = new List<GameObject>();
+    [Header("Toast Group Settings")]
+    public List<Toast> toastList = new List<Toast>();
+    public List<GameObject> toastPrefab = new List<GameObject>();
     [SerializeField] private float formatSpeed = 30f;
     [SerializeField] private float delayFactor;
     // private bool isJumping = false;
@@ -36,13 +36,13 @@ public class CatGroupManager : MonoBehaviour
 
     private void Update()
     {
-        if (catList.Count <= 0)
+        if (toastList.Count <= 0)
         {
             GameManager.instance.GameOver();
         }
         HandleJump();
         FormatGroup();
-        CheckCatsOffscreen();
+        CheckToastOffscreen();
     }
 
     // Xu ly nhay voi delay
@@ -50,31 +50,31 @@ public class CatGroupManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            for (int i = 0; i < catList.Count; i++)
+            for (int i = 0; i < toastList.Count; i++)
             {
-                float delay = (catList[0].transform.position.x - catList[i].transform.position.x) * delayFactor;
+                float delay = (toastList[0].transform.position.x - toastList[i].transform.position.x) * delayFactor;
                 delay = delay < 0 ? delay * -1 : delay;
-                StartCoroutine(JumpCatWithDelay(catList[i], delay));
+                StartCoroutine(JumpCatWithDelay(toastList[i], delay));
             }
         }
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            for (int i = 0; i < catList.Count; i++)
+            for (int i = 0; i < toastList.Count; i++)
             {
-                float delay = (catList[0].transform.position.x - catList[i].transform.position.x) * delayFactor;
+                float delay = (toastList[0].transform.position.x - toastList[i].transform.position.x) * delayFactor;
                 delay = delay < 0 ? delay * -1 : delay;
-                StartCoroutine(SetGravityWithDelay(catList[i], delay));
+                StartCoroutine(SetGravityWithDelay(toastList[i], delay));
             }
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            for (int i = 0; i < catList.Count; i++)
+            for (int i = 0; i < toastList.Count; i++)
             {
-                float delay = (catList[0].transform.position.x - catList[i].transform.position.x) * delayFactor;
+                float delay = (toastList[0].transform.position.x - toastList[i].transform.position.x) * delayFactor;
                 delay = delay < 0 ? delay * -1 : delay;
-                StartCoroutine(ExitJumpWithDelay(catList[i], delay));
+                StartCoroutine(ExitJumpWithDelay(toastList[i], delay));
             }
         }
     }
@@ -82,7 +82,7 @@ public class CatGroupManager : MonoBehaviour
     // On dinh doi hinh
     public void FormatGroup()
     {
-        if (catList.Count == 0) return;
+        if (toastList.Count == 0) return;
         // Cập nhật sorting order của index 0 để nó luôn nằm phía trên các index khác
         UpdateLeaderSortingOrder();
 
@@ -91,30 +91,30 @@ public class CatGroupManager : MonoBehaviour
 
         if (!isBlocked)
         {
-            if (catList[0].IsGrounded())
+            if (toastList[0].IsGrounded())
             {
-                Rigidbody2D leaderRb = catList[0].GetComponent<Rigidbody2D>();
-                Vector2 leaderTargetPos = new Vector2(targetX, catList[0].transform.position.y);
+                Rigidbody2D leaderRb = toastList[0].GetComponent<Rigidbody2D>();
+                Vector2 leaderTargetPos = new Vector2(targetX, toastList[0].transform.position.y);
                 Vector2 newLeaderPos = Vector2.MoveTowards(leaderRb.position, leaderTargetPos, Time.deltaTime * formatSpeed);
                 leaderRb.MovePosition(newLeaderPos);
             }
 
-            float normalizedGap = Mathf.Lerp(minGap, maxGap, Mathf.Clamp01((catList.Count - 1) / 10f));
-            float leftmostX = targetX - normalizedGap * (catList.Count - 1);
+            float normalizedGap = Mathf.Lerp(minGap, maxGap, Mathf.Clamp01((toastList.Count - 1) / 10f));
+            float leftmostX = targetX - normalizedGap * (toastList.Count - 1);
             float screenLeftX = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).x + 2f;
             if (leftmostX < screenLeftX)
             {
                 float maxLength = targetX - screenLeftX;
-                normalizedGap = maxLength / Mathf.Max(1, catList.Count - 1);
+                normalizedGap = maxLength / Mathf.Max(1, toastList.Count - 1);
             }
 
             // Gian cach doi hinh va di chuyen cac con meo den vi tri cat leader
-            for (int i = 1; i < catList.Count; i++)
+            for (int i = 1; i < toastList.Count; i++)
             {
-                if (!catList[i].IsGrounded()) continue;
+                if (!toastList[i].IsGrounded()) continue;
 
-                Vector2 targetPos = new Vector2(catList[0].transform.position.x - i * normalizedGap, catList[i].transform.position.y);
-                Rigidbody2D rb = catList[i].GetComponent<Rigidbody2D>();
+                Vector2 targetPos = new Vector2(toastList[0].transform.position.x - i * normalizedGap, toastList[i].transform.position.y);
+                Rigidbody2D rb = toastList[i].GetComponent<Rigidbody2D>();
                 Vector2 newPos = Vector2.MoveTowards(rb.position, targetPos, Time.deltaTime * formatSpeed);
                 rb.MovePosition(newPos);
             }
@@ -125,25 +125,25 @@ public class CatGroupManager : MonoBehaviour
     public void AddNewCat()
     {
         Vector3 spawnPosition = Vector3.zero;
-        if (catList.Count > 0)
+        if (toastList.Count > 0)
         {
-            spawnPosition = catList[0].transform.position;
+            spawnPosition = toastList[0].transform.position;
         }
         else
         {
             spawnPosition = transform.position;
         }
-        GameObject newCat = Instantiate(catPrefab[0], spawnPosition, Quaternion.identity);
-        if (newCat.GetComponent<CatCollisionHandler>() == null)
-            newCat.AddComponent<CatCollisionHandler>();
-        Cat cat = newCat.GetComponent<Cat>();
-        catList.Add(cat);
+        GameObject newToast = Instantiate(toastPrefab[0], spawnPosition, Quaternion.identity);
+        if (newToast.GetComponent<CatCollisionHandler>() == null)
+            newToast.AddComponent<CatCollisionHandler>();
+        Toast toast = newToast.GetComponent<Toast>();
+        toastList.Add(toast);
         // Set parent là GameObject đang giữ script này
-        cat.transform.SetParent(transform);
+        toast.transform.SetParent(transform);
 
         // Set sorting order cho mèo mới được thêm vào
-        SpriteRenderer sr = cat.GetComponent<SpriteRenderer>();
-        if (catList.Count % 3 != 0 || catList.Count == 2)
+        SpriteRenderer sr = toast.GetComponent<SpriteRenderer>();
+        if (toastList.Count % 3 != 0 || toastList.Count == 2)
         {
             sr.sortingOrder = Random.Range(0, 99);
             float colorScale = Mathf.Clamp(sr.sortingOrder / 90f, 0.6f, 1f);
@@ -153,22 +153,22 @@ public class CatGroupManager : MonoBehaviour
         {
             sr.sortingOrder = Random.Range(100, 149);
         }
-        cat.transform.position = new Vector3(cat.transform.position.x, cat.transform.position.y, Random.Range(-1f, 0f));
+        toast.transform.position = new Vector3(toast.transform.position.x, toast.transform.position.y, Random.Range(-1f, 0f));
 
         // Tang diem 
         GameManager.instance.IncreaseScore();
     }
 
     // Xóa mèo
-    public void RemoveCat(Cat cat)
+    public void RemoveCat(Toast toast)
     {
-        if (catList.Count == 0) return;
+        if (toastList.Count == 0) return;
         bool isLeader = false;
-        if (catList.Contains(cat))
+        if (toastList.Contains(toast))
         {
-            if (cat == catList[0]) isLeader = true;
-            catList.Remove(cat);
-            Destroy(cat.gameObject);
+            if (toast == toastList[0]) isLeader = true;
+            toastList.Remove(toast);
+            Destroy(toast.gameObject);
             if (isLeader)
                 UpdateLeaderSortingOrder();
         }
@@ -185,40 +185,40 @@ public class CatGroupManager : MonoBehaviour
 // {
 //     List<Cat> newCats = new List<Cat>();
 
-//     for (int i = 0; i < catList.Count; i++)
+//     for (int i = 0; i < toastList.Count; i++)
 //     {
-//         Vector3 pos = catList[i].transform.position;
-//         Destroy(catList[i].gameObject);
+//         Vector3 pos = toastList[i].transform.position;
+//         Destroy(toastList[i].gameObject);
 
-//         GameObject newCatObj = Instantiate(catPrefab[index], pos, Quaternion.identity);
-//         Cat newCat = newCatObj.GetComponent<Cat>();
-//         newCat.transform.SetParent(transform);
-//         newCats.Add(newCat);
+//         GameObject newCatObj = Instantiate(toastPrefab[index], pos, Quaternion.identity);
+//         Cat newToast = newCatObj.GetComponent<Cat>();
+//         newToast.transform.SetParent(transform);
+//         newCats.Add(newToast);
 //     }
 
-//     catList = newCats;
+//     toastList = newCats;
 
 //     yield return new WaitForSeconds(duration);
 
-//     // Revert lại về catPrefab gốc
-//     for (int i = 0; i < catList.Count; i++)
+//     // Revert lại về toastPrefab gốc
+//     for (int i = 0; i < toastList.Count; i++)
 //     {
-//         Vector3 pos = catList[i].transform.position;
-//         Destroy(catList[i].gameObject);
+//         Vector3 pos = toastList[i].transform.position;
+//         Destroy(toastList[i].gameObject);
 
-//         GameObject newCatObj = Instantiate(catPrefab[0], pos, Quaternion.identity);
-//         Cat newCat = newCatObj.GetComponent<Cat>();
-//         newCat.transform.SetParent(transform);
-//         newCats[i] = newCat;
+//         GameObject newCatObj = Instantiate(toastPrefab[0], pos, Quaternion.identity);
+//         Cat newToast = newCatObj.GetComponent<Cat>();
+//         newToast.transform.SetParent(transform);
+//         newCats[i] = newToast;
 //     }
 
-//     catList = newCats;
+//     toastList = newCats;
 // }
 
     // Kiểm tra nếu con mèo ra khỏi màn hình thì xóa nó
-    private void CheckCatsOffscreen()
+    private void CheckToastOffscreen()
     {
-        if (catList.Count == 0) return;
+        if (toastList.Count == 0) return;
 
         Camera cam = Camera.main;
         Vector3 bottomLeft = cam.ViewportToWorldPoint(new Vector3(0, 0, 0));
@@ -226,17 +226,17 @@ public class CatGroupManager : MonoBehaviour
         float leftBound = bottomLeft.x;
         float bottomBound = bottomLeft.y;
 
-        for (int i = catList.Count - 1; i >= 0; i--)
+        for (int i = toastList.Count - 1; i >= 0; i--)
         {
-            if (catList[i] == null) continue;
+            if (toastList[i] == null) continue;
 
-            Vector3 catPos = catList[i].transform.position;
+            Vector3 toastPos = toastList[i].transform.position;
 
             // Nếu ra khỏi màn hình bên trái hoặc rớt xuống dưới
-            if (catPos.x < leftBound - 2f || catPos.y < bottomBound - 5f)
+            if (toastPos.x < leftBound - 2f || toastPos.y < bottomBound - 5f)
             {
-                Cat catToRemove = catList[i];
-                catList.RemoveAt(i);
+                Toast catToRemove = toastList[i];
+                toastList.RemoveAt(i);
                 GameManager.instance.DecreaseScore();
                 Destroy(catToRemove.gameObject);
             }
@@ -244,46 +244,46 @@ public class CatGroupManager : MonoBehaviour
     }
 
     /// Dieu khien tung nhan vat nhay rieng biet voi delay dua vao khoang cach cua no toi leader
-    private IEnumerator JumpCatWithDelay(Cat cat, float delay)
+    private IEnumerator JumpCatWithDelay(Toast toast, float delay)
     {
         yield return new WaitForSeconds(delay);
-        cat.StartJump();
+        toast.StartJump();
         Debug.Log("Meo nhay!");
     }
 
-    private IEnumerator ExitJumpWithDelay(Cat cat, float delay)
+    private IEnumerator ExitJumpWithDelay(Toast toast, float delay)
     {
         yield return new WaitForSeconds(delay);
-        cat.ExitJump();
-        cat.SetBaseGravity();
+        toast.ExitJump();
+        toast.SetBaseGravity();
         Debug.Log("Meo roi!");
     }
 
-    private IEnumerator SetGravityWithDelay(Cat cat, float delay)
+    private IEnumerator SetGravityWithDelay(Toast toast, float delay)
     {
         yield return new WaitForSeconds(delay);
-        cat.SetGlideGravity();
+        toast.SetGlideGravity();
     }
 
     private void UpdateLeaderSortingOrder()
     {
-        if (catList.Count > 0)
+        if (toastList.Count > 0)
         {
-            catList[0].GetComponent<SpriteRenderer>().sortingOrder = 150;
-            catList[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            catList[0].transform.position = new Vector3(catList[0].transform.position.x, catList[0].transform.position.y, 1f);
+            toastList[0].GetComponent<SpriteRenderer>().sortingOrder = 150;
+            toastList[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            toastList[0].transform.position = new Vector3(toastList[0].transform.position.x, toastList[0].transform.position.y, 1f);
         }
     }
 
     // Gan isGrounded của tất cả mèo 
     public void SetIsGrounded(bool isTrue)
     {
-        for (int i = 0; i < catList.Count; i++)
+        for (int i = 0; i < toastList.Count; i++)
         {
-            if (catList[i].IsGrounded() == true) continue;
-            catList[i].setIsGrounded(isTrue);
-            catList[i].setIsHoldingJump(isTrue);
-            catList[i].setIsGroundFalseWhenCatFalling();
+            if (toastList[i].IsGrounded() == true) continue;
+            toastList[i].setIsGrounded(isTrue);
+            toastList[i].setIsHoldingJump(isTrue);
+            toastList[i].setIsGroundFalseWhenFalling();
         }
     }
 
@@ -299,10 +299,10 @@ public class CatGroupManager : MonoBehaviour
     // Get con mèo ở index 0
     public GameObject getLeaderCat()
     {
-        if (catList.Count <= 0) return null;
-        return catList[0].gameObject;
+        if (toastList.Count <= 0) return null;
+        return toastList[0].gameObject;
     }
 
-    public int GetTransformVariety() => catPrefab.Count - 1;
+    public int GetTransformVariety() => toastPrefab.Count - 1;
     
 }
