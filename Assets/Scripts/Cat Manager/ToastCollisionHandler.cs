@@ -6,29 +6,6 @@ using System;
 public class ToastCollisionHandler : MonoBehaviour
 {
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        // if (other.gameObject.CompareTag("Bait"))
-        // {
-        //     AudioManager.instance.PlaySFX(AudioManager.instance.hitScoreSFX);
-        //     EffectManager.instance.CallHitSlimeEffect(other.transform.position);
-        //     Destroy(other.gameObject);
-        //     CatGroupManager.instance.AddNewCat();
-        // }
-
-        // if (other.gameObject.CompareTag("Bomb") && other.gameObject.GetComponent<Bomb>())
-        // {
-        //     AudioManager.instance.PlaySFX(AudioManager.instance.hitBombSFX);
-        //     CatGroupManager.instance.RemoveCat(this.GetComponent<Cat>());
-
-        //     ///// Xu li animation no khi va cham voi bomb
-        //     EffectManager.instance.CallExplosionEffect(other.transform.position);
-        //     // Xoa bomb
-        //     Destroy(other.gameObject);
-        // }
-    }
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Thu thap tien

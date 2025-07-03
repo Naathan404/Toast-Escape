@@ -175,45 +175,6 @@ public class CatGroupManager : MonoBehaviour
         GameManager.instance.DecreaseScore();
     }
 
-// public void TransformCats(int transformIndex, float duration)
-// {
-//     StartCoroutine(TransformRoutine(transformIndex, duration));
-// }
-
-// private IEnumerator TransformRoutine(int index, float duration)
-// {
-//     List<Cat> newCats = new List<Cat>();
-
-//     for (int i = 0; i < toastList.Count; i++)
-//     {
-//         Vector3 pos = toastList[i].transform.position;
-//         Destroy(toastList[i].gameObject);
-
-//         GameObject newCatObj = Instantiate(toastPrefab[index], pos, Quaternion.identity);
-//         Cat newToast = newCatObj.GetComponent<Cat>();
-//         newToast.transform.SetParent(transform);
-//         newCats.Add(newToast);
-//     }
-
-//     toastList = newCats;
-
-//     yield return new WaitForSeconds(duration);
-
-//     // Revert lại về toastPrefab gốc
-//     for (int i = 0; i < toastList.Count; i++)
-//     {
-//         Vector3 pos = toastList[i].transform.position;
-//         Destroy(toastList[i].gameObject);
-
-//         GameObject newCatObj = Instantiate(toastPrefab[0], pos, Quaternion.identity);
-//         Cat newToast = newCatObj.GetComponent<Cat>();
-//         newToast.transform.SetParent(transform);
-//         newCats[i] = newToast;
-//     }
-
-//     toastList = newCats;
-// }
-
     // Kiểm tra nếu con mèo ra khỏi màn hình thì xóa nó
     private void CheckToastOffscreen()
     {

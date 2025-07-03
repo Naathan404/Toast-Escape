@@ -39,4 +39,5 @@ public class ToastPool : MonoBehaviour
         toastPool.Add(toastPrefab);
         return newToast;
     }
+    
 }
