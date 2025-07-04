@@ -17,4 +17,4 @@ MonoBehaviour:
   description: i am hungry :(((
   price: 1000
   isPurchased: 0
-  SkinID: 3
+  SkinID: 10

@@ -73,6 +73,8 @@ public class SkinTab : BaseTab
             PlayerPrefs.Save();
             PlayerPrefs.SetInt("Purchased_" + item.itemName, 1);
 
+            AudioManager.instance.PlaySFX(AudioManager.instance.accept);
+
             // Dat skin moi mua lam skin su dung
             buyButton.interactable = false;
             SkinItem skinItem = item as SkinItem;
@@ -88,12 +90,14 @@ public class SkinTab : BaseTab
         else
         {
             Debug.Log("Không đủ tiền hoặc đã mua");
+            AudioManager.instance.PlaySFX(AudioManager.instance.cancle);
             imageButton.color = new Color(1f, 0.5f, 0.5f, 1f);
         }
     }
 
     void SelectSkin(SkinItem skinItem, TextMeshProUGUI buttonText)
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.fillerSfx);
         PlayerPrefs.SetInt("SelectedSkinID", skinItem.SkinID);
         PlayerPrefs.Save();
         Debug.Log("Skin selected: " + skinItem.itemName);

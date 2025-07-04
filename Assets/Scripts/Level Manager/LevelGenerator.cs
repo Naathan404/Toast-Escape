@@ -25,6 +25,8 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     private Transform lastEndPosition;
 
+    private float secretLevelRatio;
+
     public static LevelGenerator instance;
     private void Awake()
     {

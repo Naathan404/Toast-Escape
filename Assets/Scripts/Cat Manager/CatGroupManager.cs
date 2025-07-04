@@ -150,6 +150,7 @@ public class CatGroupManager : MonoBehaviour
         else
         {
             sr.sortingOrder = Random.Range(100, 149);
+            sr.color = Color.white;
         }
         toast.transform.position = new Vector3(toast.transform.position.x, toast.transform.position.y, Random.Range(-1f, 0f));
 

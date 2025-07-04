@@ -10,24 +10,38 @@ public class IncomingObstacle : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.PlaySFX(AudioManager.instance.alert);
-        warningSignPrefab.SetActive(true);
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlaySFX(AudioManager.instance.alert);
+        if (warningSignPrefab != null)
+            warningSignPrefab.SetActive(true);
+
         StartCoroutine(StartWithWarning(warningDuration));
     }
 
     private void OnEnable()
     {
-        AudioManager.instance.PlaySFX(AudioManager.instance.alert);
-        warningSignPrefab.SetActive(true);
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlaySFX(AudioManager.instance.alert);
+        if (warningSignPrefab != null)
+            warningSignPrefab.SetActive(true);
+
         StartCoroutine(StartWithWarning(warningDuration));
     }
 
     IEnumerator StartWithWarning(float duration)
     {
         yield return new WaitForSeconds(duration);
-        warningSignPrefab.SetActive(false);
-        GameObject bat = IncomingObstaclePool.instance.GetBat();
-        bat.transform.position = batSpawnPoint.transform.position;
-        bat.SetActive(true);
+
+        if (warningSignPrefab != null)
+            warningSignPrefab.SetActive(false);
+        if (IncomingObstaclePool.instance != null)
+        {
+            GameObject bat = IncomingObstaclePool.instance.GetBat();
+            if (bat != null && batSpawnPoint != null)
+            {
+                bat.transform.position = batSpawnPoint.transform.position;
+                bat.SetActive(true);
+            }
+        }
     }
 }

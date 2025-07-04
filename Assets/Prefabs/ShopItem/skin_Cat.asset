@@ -17,4 +17,4 @@ MonoBehaviour:
   description: All that he said "meow meow meow"
   price: 500
   isPurchased: 1
-  SkinID: 2
+  SkinID: 10

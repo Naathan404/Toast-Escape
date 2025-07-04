@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1aa4171e06a0f47bcfad12dbb8acd9, type: 3}
+  m_Name: skin_Baguette
+  m_EditorClassIdentifier: 
+  itemName: Baguette
+  itemIcon: {fileID: 8296909567468479214, guid: 82fd4452a9dffbc4aa60279803696d4f, type: 3}
+  description: abcxyz
+  price: 1
+  isPurchased: 0
+  SkinID: 3

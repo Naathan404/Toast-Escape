@@ -34,9 +34,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip alert;
     public AudioClip fillerSfx;
     public AudioClip shopTabChange;
+    public AudioClip cancle;
+    public AudioClip accept;
 
     private float lastSFXTime = -1f;
-    private float sfxCoolDown = 0.05f;
+    private float sfxCoolDown = 0.03f;
 
     private void Start()
     {

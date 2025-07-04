@@ -51,6 +51,9 @@ public class BoostsTab : BaseTab
             PlayerPrefs.SetInt("TotalCoin", currentCoins - item.price);
             PlayerPrefs.Save();
 
+            // Am thanh nut
+            AudioManager.instance.PlaySFX(AudioManager.instance.accept);
+
             // Cap nhat nut bam
             buyButton.interactable = false;
             buyButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Selected";
@@ -66,6 +69,7 @@ public class BoostsTab : BaseTab
         else
         {
             Debug.Log("Khong du tien hoac item da bi mua");
+            AudioManager.instance.PlaySFX(AudioManager.instance.cancle);
             imageButton.color = new Color(1f, 0.5f, 0.5f, 1f);
         }
     }

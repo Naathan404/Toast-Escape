@@ -36,6 +36,7 @@ public class OptionsManager : MonoBehaviour
     public void OnResetButtonClick()
     {
         PlayerPrefs.SetInt("HighScore", 0);
+        PlayerPrefs.SetInt("HadPlayed", 0);
         AudioManager.instance.PlaySFX(AudioManager.instance.alert);
     }
 }
