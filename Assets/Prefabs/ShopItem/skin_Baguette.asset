@@ -17,4 +17,4 @@ MonoBehaviour:
   description: abcxyz
   price: 1
   isPurchased: 0
-  SkinID: 3
+  SkinID: 10

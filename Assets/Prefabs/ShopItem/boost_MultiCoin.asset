@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: MultiCoin
   itemIcon: {fileID: 3941865155255965694, guid: bba839959d0b4a048b64f17b4db467d9, type: 3}
-  description: You recieve coin randomly between 1 and 3 per one coin token
+  description: You get random coins from 1 to 3 when collecting. Lasts for whole
+    your next run.
   price: 200
   isPurchased: 0
   BoostID: 2

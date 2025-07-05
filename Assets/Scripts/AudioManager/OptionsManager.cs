@@ -29,8 +29,8 @@ public class OptionsManager : MonoBehaviour
 
     private void LoadSlider()
     {
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
-        sfxSlider.value = PlayerPrefs.GetFloat("SfxVolume");
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        sfxSlider.value = PlayerPrefs.GetFloat("SfxVolume", 1f);
     }
 
     public void OnResetButtonClick()

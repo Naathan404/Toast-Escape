@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1aa4171e06a0f47bcfad12dbb8acd9, type: 3}
   m_Name: skin_Zombie
   m_EditorClassIdentifier: 
-  itemName: Zombie
-  itemIcon: {fileID: -4154851463354433613, guid: b2f3cb7c1e456f54f8664ffde6ae280b, type: 3}
-  description: abcxyz
-  price: 1
-  isPurchased: 0
+  itemName: The Walking Bread
+  itemIcon: {fileID: 3169061090456349541, guid: 5930ac7ccf4f228408731af0901774dc, type: 3}
+  description: Brain?... Nah, he came for butter.
+  price: 500
+  isPurchased: 1
   SkinID: 6

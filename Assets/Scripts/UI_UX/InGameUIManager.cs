@@ -19,6 +19,7 @@ public class InGameUIManager : MonoBehaviour
     [Header("Panel Control")]
     [SerializeField] private GameObject playingPanel;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject pausePanel;
     [SerializeField] private CanvasGroup screenFadeCanvas;
     [SerializeField] private float slowDuration;
     [SerializeField] private float minTimeScale;
@@ -43,6 +44,11 @@ public class InGameUIManager : MonoBehaviour
     public void SetGameOverPanel(bool isActivate)
     {
         gameOverPanel.SetActive(isActivate);
+    }
+
+    public void SetPausePanel(bool isActivate)
+    {
+        pausePanel.SetActive(isActivate);
     }
 
 
@@ -83,6 +89,7 @@ public class InGameUIManager : MonoBehaviour
         {
             gameOverPanel.SetActive(true);
             playingPanel.SetActive(false);
+            pausePanel.SetActive(false);
             UpdateFinalScoreText(finalScore);
             UpdateHighScoreText(highScore);
             UpdateFinalCoinText(0);

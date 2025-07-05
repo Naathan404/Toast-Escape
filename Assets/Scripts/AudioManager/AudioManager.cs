@@ -79,10 +79,21 @@ public class AudioManager : MonoBehaviour
 
     public void SetVolume()
     {
-        float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
-        float sfxVolume = PlayerPrefs.GetFloat("SfxVolume");
+        float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        float sfxVolume = PlayerPrefs.GetFloat("SfxVolume", 1f);
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(musicVolume) * 20);
         audioMixer.SetFloat("SfxVolume", Mathf.Log10(sfxVolume) * 20);
     }
 
+    public void PauseMusic()
+    {
+        if(musicSource.isPlaying)
+            musicSource.Pause();
+    }
+
+    public void UnPauseMusic()
+    {   
+        if(!musicSource.isPlaying)
+            musicSource.UnPause();
+    }
 }

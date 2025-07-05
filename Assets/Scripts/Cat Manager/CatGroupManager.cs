@@ -36,6 +36,7 @@ public class CatGroupManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.IsPause()) return;
         if (toastList.Count <= 0)
         {
             GameManager.instance.GameOver();

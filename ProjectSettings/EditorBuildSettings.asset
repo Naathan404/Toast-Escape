@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3_Options.unity
     guid: 98871e8521a3b0f47aeea159a47713af
+  - enabled: 1
+    path: Assets/Scenes/4_Info.unity
+    guid: 9ec8b2a4a9ea74a4ca25b08ebabf1509
+  - enabled: 1
+    path: Assets/Scenes/5_How2Play.unity
+    guid: 20e3ada9ee4f4104789022ca0e96c8fb
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 6db02b19a6fd24a428b8a351818c9a2b, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: db7a543b1b7ffee4a9549f64c6461c3d, type: 2}

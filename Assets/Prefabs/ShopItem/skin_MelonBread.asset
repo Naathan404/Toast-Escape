@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1aa4171e06a0f47bcfad12dbb8acd9, type: 3}
   m_Name: skin_MelonBread
   m_EditorClassIdentifier: 
-  itemName: Melon-chan
-  itemIcon: {fileID: 3218136696668514808, guid: 0008245a2170f7a4c89ef95fae0146e7, type: 3}
-  description: abcxyz
-  price: 1
+  itemName: Melonie
+  itemIcon: {fileID: 6939509426208624192, guid: 14c4d4046a5462e43bf482d2d937fef7, type: 3}
+  description: "Don\u2019t judge her by her sweetness \u2014 she will win."
+  price: 1000
   isPurchased: 0
   SkinID: 1

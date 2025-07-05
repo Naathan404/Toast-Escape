@@ -17,17 +17,14 @@ public abstract class BaseTab : MonoBehaviour
     {
         foreach (ShopItem item in items)
         {
-            // Xóa key lưu trạng thái mua trong PlayerPrefs (nếu bạn lưu thủ công theo key riêng)
             PlayerPrefs.DeleteKey("Purchased_" + item.itemName);
 
-            // Reset biến isPurchased trong ScriptableObject
             item.isPurchased = false;
         }
         PlayerPrefs.SetInt("SelectedSkinID", 0);
         PlayerPrefs.Save();
         Debug.Log("Đã reset trạng thái mua của tất cả item.");
 
-        // Reload lại shop UI để thấy thay đổi
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

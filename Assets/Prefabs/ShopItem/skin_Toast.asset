@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1aa4171e06a0f47bcfad12dbb8acd9, type: 3}
   m_Name: skin_Toast
   m_EditorClassIdentifier: 
-  itemName: Toast Bro
-  itemIcon: {fileID: 7680891615989008225, guid: 6707b3652bc2c7a459498c988b15025d, type: 3}
-  description: banh mi nuong ngon ngon
+  itemName: Just Toast
+  itemIcon: {fileID: -6682851869878673487, guid: 4a1fd5fc2094b424ca304ace360f7804, type: 3}
+  description: 'Let me say that again: "He''s just toast".'
   price: 0
   isPurchased: 1
   SkinID: 0

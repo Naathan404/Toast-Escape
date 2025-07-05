@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private const string HIGH_SCORE = "HighScore";
     private bool isNewRecord = false;
     private bool isDoubleCoinBoostSelected = false;
+    private bool isPause = false;
 
     [Header("Boosts Settings")]
     [SerializeField] private GameObject bonusMinionsGroup;
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         InGameUIManager.instance.SetPlayingPanel(true);
         InGameUIManager.instance.SetGameOverPanel(false);
+        InGameUIManager.instance.SetPausePanel(false);
         currentScore = CatGroupManager.instance.toastList.Count;
         if (BoostManager.instance != null)
             ActivateSelectedBoost();
@@ -136,4 +138,16 @@ public class GameManager : MonoBehaviour
         else
             rewardPerCoin /= 2;
     }
+
+    public void PauseGame()
+    {
+        isPause = true;
+    }
+
+    public void ResumeGame()
+    {
+        isPause = false;
+    }
+
+    public bool IsPause() => isPause;
 }

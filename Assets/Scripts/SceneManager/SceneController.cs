@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,6 +12,7 @@ public class SceneController : MonoBehaviour
 
     public void OnLoadSceneButtonClick(string sceneName)
     {
+        Time.timeScale = 1f;
         if (sceneName == "1_InGame")
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.accept);

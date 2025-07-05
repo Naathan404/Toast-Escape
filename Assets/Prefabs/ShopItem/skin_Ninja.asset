@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1aa4171e06a0f47bcfad12dbb8acd9, type: 3}
+  m_Name: skin_Ninja
+  m_EditorClassIdentifier: 
+  itemName: Shi-none-bi
+  itemIcon: {fileID: -415099166959460877, guid: 3402132fdfab21c44a78712c61a1ebba, type: 3}
+  description: You can't see him. Because he is doing absolutely nothing.
+  price: 700
+  isPurchased: 0
+  SkinID: 3

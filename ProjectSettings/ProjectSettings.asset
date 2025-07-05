@@ -820,11 +820,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 0d85de1b-5d5d-461d-b2d5-db5994e38397
+  cloudProjectId: 0087f34a-faf9-4b00-8b8b-3450edd4881a
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Meow Tsunami 2025-04-28_10-10-01
-  organizationId: ngnguyennn
+  projectName: Toast Escape
+  organizationId: nathannguyen6002
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

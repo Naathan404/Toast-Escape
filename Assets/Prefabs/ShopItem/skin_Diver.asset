@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1aa4171e06a0f47bcfad12dbb8acd9, type: 3}
+  m_Name: skin_Diver
+  m_EditorClassIdentifier: 
+  itemName: Toastinic
+  itemIcon: {fileID: -6336670622895557828, guid: 530fd564146aad14bae5ffbe7f0db9ba, type: 3}
+  description: '- "Jack?". - "Oh sorry, I am toast".'
+  price: 500
+  isPurchased: 0
+  SkinID: 8

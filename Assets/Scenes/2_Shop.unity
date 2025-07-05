@@ -1132,12 +1132,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 11400000, guid: 2102252496e0d00408b20c2c1c28009c, type: 2}
-  - {fileID: 11400000, guid: d97a57524478955488d360b40413957b, type: 2}
   - {fileID: 11400000, guid: fde3e43fffc4d024687e20fa27c357cc, type: 2}
-  - {fileID: 11400000, guid: b4615543409663140b754f31a8ad2fd0, type: 2}
-  - {fileID: 11400000, guid: 7ae80ed0a93cc8e44a16bc7303338550, type: 2}
-  - {fileID: 11400000, guid: a124a975bf24d00468b5970b6cd868e8, type: 2}
+  - {fileID: 11400000, guid: 87b73370d7ddcc84ba33921a13d3886f, type: 2}
   - {fileID: 11400000, guid: fce69feb4e9d290429c08fcd99632ae7, type: 2}
+  - {fileID: 11400000, guid: ddf3414495029d74e9e12a819de95c15, type: 2}
+  - {fileID: 11400000, guid: 7ae80ed0a93cc8e44a16bc7303338550, type: 2}
+  - {fileID: 11400000, guid: 2b1fccea91680da4580bf4b02d2dc06b, type: 2}
+  - {fileID: 11400000, guid: d97a57524478955488d360b40413957b, type: 2}
+  - {fileID: 11400000, guid: a124a975bf24d00468b5970b6cd868e8, type: 2}
+  - {fileID: 11400000, guid: c2e3fd597fd488d41a179c70ad7e9745, type: 2}
   itemContainer: {fileID: 2071941896}
   itemUIPrefab: {fileID: 2820896069099564099, guid: 6f86fb9885ce34d45afc7d02b20204ee, type: 3}
 --- !u!1 &498129322
@@ -1285,7 +1288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &513369790
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3279,7 +3282,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278227199
-  m_fontColor: {r: 1, g: 0.5658633, b: 0, a: 1}
+  m_fontColor: {r: 0.8352941, g: 0.28235295, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4080,7 +4083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1554485531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5806,8 +5809,6 @@ RectTransform:
   m_LocalScale: {x: 0.97173655, y: 0.9492, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 715941376}
-  - {fileID: 1807738491}
   - {fileID: 498129323}
   - {fileID: 488597504}
   - {fileID: 1635630459}
@@ -5820,6 +5821,8 @@ RectTransform:
   - {fileID: 1510177153}
   - {fileID: 733764879}
   - {fileID: 1785224657}
+  - {fileID: 715941376}
+  - {fileID: 1807738491}
   m_Father: {fileID: 357787277}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

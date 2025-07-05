@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1aa4171e06a0f47bcfad12dbb8acd9, type: 3}
   m_Name: skin_Overcook
   m_EditorClassIdentifier: 
-  itemName: Overcook
-  itemIcon: {fileID: 359097657863179857, guid: 336af273eb606bd4c9c1c25861823a5c, type: 3}
-  description: abcxyz
-  price: 1
-  isPurchased: 0
+  itemName: Totally Toasted
+  itemIcon: {fileID: 7353145809335286989, guid: f4c750b373b4d534a8fb0b6b31a2d551, type: 3}
+  description: '"Just five more seconds" - They lied to me!.'
+  price: 500
+  isPurchased: 1
   SkinID: 2

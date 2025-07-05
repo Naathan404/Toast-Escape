@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: skin_Hamberger
   m_EditorClassIdentifier: 
   itemName: Mr. Chessy
-  itemIcon: {fileID: 7275279064785059147, guid: c39919abbef98904c9ee7d5ebfbe73af, type: 3}
-  description: To be honest, I am handsome than Pizza
-  price: 2000
+  itemIcon: {fileID: 9179502050475702927, guid: 7c3a582f8452cea46a5896519c43e07c, type: 3}
+  description: '"To be honest, I''m way more handsome than those dumb toasts."'
+  price: 1000
   isPurchased: 1
   SkinID: 5

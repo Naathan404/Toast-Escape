@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1aa4171e06a0f47bcfad12dbb8acd9, type: 3}
+  m_Name: skin_Halloween
+  m_EditorClassIdentifier: 
+  itemName: Toast-O'-Latern
+  itemIcon: {fileID: 7794087029069651202, guid: a898194adbc642945b33c44739723bb9, type: 3}
+  description: 'Warning: He is very dangerous! Don''t bite him... unless you butter
+    him first.'
+  price: 1000
+  isPurchased: 0
+  SkinID: 7

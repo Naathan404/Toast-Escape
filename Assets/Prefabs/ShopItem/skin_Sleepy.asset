@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1aa4171e06a0f47bcfad12dbb8acd9, type: 3}
   m_Name: skin_Sleepy
   m_EditorClassIdentifier: 
-  itemName: Sleepy
-  itemIcon: {fileID: 2568637585803687481, guid: 6ba9e718e9431c6439a3cd643e0af789, type: 3}
-  description: abcxyz
-  price: 1
-  isPurchased: 0
+  itemName: Zzzoast
+  itemIcon: {fileID: -9129913672545537709, guid: 56e4af4d7f6c1e043ad9f2a69def7c3f, type: 3}
+  description: '"I''m not slow, I''m just saving my energy".'
+  price: 700
+  isPurchased: 1
   SkinID: 4

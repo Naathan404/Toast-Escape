@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Squad Arrived!
   itemIcon: {fileID: -5848334109486645265, guid: e26bab31aa5b196408e84ba2a3657a14, type: 3}
-  description: give you 4 more reinforcements in the next run
+  description: 'Give you 4 more reinforcements in the next run. '
   price: 250
   isPurchased: 0
   BoostID: 1

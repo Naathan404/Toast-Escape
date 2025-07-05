@@ -113,9 +113,4 @@ public class SkinTab : BaseTab
 
         LoadTab();
     }
-
-    void ResetColor(Image image)
-    {
-        image.color = new Color(1f, 0.5f, 0.5f, 1f);
-    }
 }

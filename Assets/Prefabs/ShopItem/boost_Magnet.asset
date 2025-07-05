@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Magnet
   itemIcon: {fileID: -9099283694029754122, guid: 0291c24fad3a3f9419d7656fbb6ec110, type: 3}
-  description: Give you a magnet last for first 30 second when you start a run
+  description: Attracts all nearby coins directly to the Toast group in the next
+    run. Lasts for 20 seconds.
   price: 150
   isPurchased: 0
   BoostID: 3
