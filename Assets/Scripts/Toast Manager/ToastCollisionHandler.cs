@@ -29,7 +29,7 @@ public class ToastCollisionHandler : MonoBehaviour
             // Deactive collider
             collision.gameObject.SetActive(false);
 
-            CatGroupManager.instance.AddNewCat();
+            ToastGroupManager.instance.AddNewCat();
             AudioManager.instance.PlaySFX(AudioManager.instance.hitScoreSFX);
             
             // Call effect
@@ -80,7 +80,7 @@ public class ToastCollisionHandler : MonoBehaviour
             collision.gameObject.SetActive(false);
 
             AudioManager.instance.PlaySFX(AudioManager.instance.hitBombSFX);
-            CatGroupManager.instance.RemoveCat(this.GetComponent<Toast>());
+            ToastGroupManager.instance.RemoveCat(this.GetComponent<Toast>());
 
             // Call effect
             GameObject effect = EffectManager.instance.GetExplosionEffect();
@@ -95,7 +95,7 @@ public class ToastCollisionHandler : MonoBehaviour
             collision.gameObject.SetActive(false);
 
             AudioManager.instance.PlaySFX(AudioManager.instance.hitBombSFX);
-            CatGroupManager.instance.RemoveCat(this.GetComponent<Toast>());
+            ToastGroupManager.instance.RemoveCat(this.GetComponent<Toast>());
 
             // Call effect
             GameObject effect = EffectManager.instance.GetExplosionEffect();

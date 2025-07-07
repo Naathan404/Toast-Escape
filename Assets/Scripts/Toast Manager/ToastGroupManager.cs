@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CatGroupManager : MonoBehaviour
+public class ToastGroupManager : MonoBehaviour
 {
 
     [Header("Toast Group Settings")]
@@ -22,7 +22,7 @@ public class CatGroupManager : MonoBehaviour
     Vector2 targetPos;
 
     // Singleton Pattern
-    public static CatGroupManager instance;
+    public static ToastGroupManager instance;
     private void Awake()
     {
         if (instance != null && instance != this)

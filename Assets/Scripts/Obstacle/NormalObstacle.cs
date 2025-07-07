@@ -8,7 +8,7 @@ public class NormalObstacle : BaseObstacle
         for (int i = 0; i < bonusCat; i++)
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.hitScoreSFX);
-            CatGroupManager.instance.AddNewCat();
+            ToastGroupManager.instance.AddNewCat();
         }
     }
 }

@@ -8,8 +8,8 @@ public class FollowTarget : MonoBehaviour
 
     private void Update()
     {
-        if (!CatGroupManager.instance.getLeader()) return;
-        target = CatGroupManager.instance.getLeader().transform;
+        if (!ToastGroupManager.instance.getLeader()) return;
+        target = ToastGroupManager.instance.getLeader().transform;
         Follow(target);
     }
 

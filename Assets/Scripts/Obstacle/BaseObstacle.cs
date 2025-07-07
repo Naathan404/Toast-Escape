@@ -34,7 +34,7 @@ public class BaseObstacle : MonoBehaviour
             ContactPoint2D contact = other.contacts[0];
             if (contact.normal.x > 0.5f) // Kiem tra va cham neu meo den tu phia trai
             {
-                CatGroupManager.instance.BlockGroup();
+                ToastGroupManager.instance.BlockGroup();
                 currentCat++;
                 UpdateCounterText();
                 if (requiredCatCount <= currentCat)
@@ -50,7 +50,7 @@ public class BaseObstacle : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Cat"))
         {
-            CatGroupManager.instance.UnblockGroup();
+            ToastGroupManager.instance.UnblockGroup();
             currentCat = Mathf.Max(currentCat - 1, 0);
             UpdateCounterText();
         }
@@ -68,10 +68,10 @@ public class BaseObstacle : MonoBehaviour
         gameObject.SetActive(false);
 
         // Dat isGrounded = true cho toan bo
-        CatGroupManager.instance.SetIsGrounded(true);
+        ToastGroupManager.instance.SetIsGrounded(true);
 
         // Goi ham Unblock de nhom meo on dinh doi hinh
-        CatGroupManager.instance.UnblockGroup();
+        ToastGroupManager.instance.UnblockGroup();
 
         // Goi ham them meo moi
         ExecuteWhenDetroyed(); 

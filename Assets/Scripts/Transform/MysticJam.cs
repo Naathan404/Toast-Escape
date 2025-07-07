@@ -9,7 +9,7 @@ public class MysticJam : MonoBehaviour
     {
         if (collision.CompareTag("Cat"))
         {
-            transformID = Random.Range(1, CatGroupManager.instance.GetTransformVariety());
+            transformID = Random.Range(1, ToastGroupManager.instance.GetTransformVariety());
             //CatGroupManager.instance.TransformCats(transformID, 10f);
         }
     }

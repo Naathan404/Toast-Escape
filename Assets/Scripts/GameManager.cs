@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         InGameUIManager.instance.SetPlayingPanel(true);
         InGameUIManager.instance.SetGameOverPanel(false);
         InGameUIManager.instance.SetPausePanel(false);
-        currentScore = CatGroupManager.instance.toastList.Count;
+        currentScore = ToastGroupManager.instance.toastList.Count;
         if (BoostManager.instance != null)
             ActivateSelectedBoost();
     }
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore()
     {
         currentScore++;
-        InGameUIManager.instance.UpdateCurrentToastNumberText(CatGroupManager.instance.toastList.Count);
+        InGameUIManager.instance.UpdateCurrentToastNumberText(ToastGroupManager.instance.toastList.Count);
         InGameUIManager.instance.UpdateCurrentScoreText(currentScore);
         if (currentScore > PlayerPrefs.GetInt(HIGH_SCORE, 0))
         {
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     }
     public void DecreaseScore()
     {
-        InGameUIManager.instance.UpdateCurrentToastNumberText(CatGroupManager.instance.toastList.Count);
+        InGameUIManager.instance.UpdateCurrentToastNumberText(ToastGroupManager.instance.toastList.Count);
     }
     public void IncreaseCoin()
     {
