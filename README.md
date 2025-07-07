@@ -13,6 +13,6 @@ Control your toast squad as they dash through countless obstacles. Tap to jump, 
 - Super cute skin system:
 From the spooky The Walking Bread to the master chef Gordon Ramslice, unlock and collect a variety of hilarious and adorable skins. Customize your toast army and create your own unique style!
 
-3. Source Code
+3. Try this game:
 Itch.io: https://naathannguyennn.itch.io/toast-escape
 Feel free to explore!
